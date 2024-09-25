@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('author_id')->nullable();
             $table->integer('category_id');
-            $table->string('title')->nullable();
+            $table->string('title')->nullable()->unique();
             $table->string('slug');
             $table->text('description')->nullable();
             $table->string('tags')->nullable();
