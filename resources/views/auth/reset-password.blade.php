@@ -1,14 +1,14 @@
 <x-guest-layout>
-    <x-jet-authentication-card>
+    <x-authentication-card>
         <x-slot name="logo">
         </x-slot>
 
         <div class="w-full sm:max-w-lg mx-auto flex flex-col gap-4 p-4 bg-white ">
             <div class="mx-auto max-w-sm">
-                <x-jet-authentication-card-logo />
+                <x-authentication-card-logo />
             </div>        
 
-            <x-jet-validation-errors class="mb-4" />
+            <x-validation-errors class="mb-4" />
 
             <form method="POST" action="{{ route('password.update') }}">
                 @csrf
@@ -16,18 +16,18 @@
                 <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
                 <div class="block">
-                    <x-jet-label for="email" value="{{ __('Email') }}" />
-                    <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus />
+                    <x-label for="email" value="{{ __('Email') }}" />
+                    <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus />
                 </div>
 
                 <div class="mt-4">
-                    <x-jet-label for="password" value="{{ __('Password') }}" />
-                    <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+                    <x-label for="password" value="{{ __('Password') }}" />
+                    <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
                 </div>
 
                 <div class="mt-4">
-                    <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                    <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+                    <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+                    <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
                 </div>
 
                 <div class="flex items-center justify-end mt-4">
@@ -39,5 +39,5 @@
             </form>
 
         </div>
-    </x-jet-authentication-card>
+    </x-authentication-card>
 </x-guest-layout>

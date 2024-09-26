@@ -1,14 +1,14 @@
 <x-guest-layout>
-    <x-jet-authentication-card>
+    <x-authentication-card>
         <x-slot name="logo">
 
         </x-slot>
 
-        <x-jet-validation-errors class="mb-4" />
-
+        <x-validation-errors class="mb-4" />
+        
         <div class="w-full sm:max-w-lg mx-auto flex flex-col gap-4 p-4 bg-white ">
             <div class="mx-auto max-w-sm">
-                <x-jet-authentication-card-logo />
+                <x-authentication-card-logo />
             </div>
 
             @if (session('status'))
@@ -22,18 +22,18 @@
                 @csrf
 
                 <div>
-                    <x-jet-label for="email" value="{{ __('Email') }}" />
-                    <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                    <x-label for="email" value="{{ __('Email') }}" />
+                    <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
                 </div>
 
                 <div class="mt-4">
-                    <x-jet-label for="password" value="{{ __('Password') }}" />
-                    <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+                    <x-label for="password" value="{{ __('Password') }}" />
+                    <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
                 </div>
 
                 <div class="block mt-4">
                     <label for="remember_me" class="flex items-center">
-                        <x-jet-checkbox id="remember_me" name="remember" />
+                        <x-checkbox id="remember_me" name="remember" />
                         <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                     </label>
                 </div>
@@ -61,5 +61,5 @@
 
         </div>
 
-    </x-jet-authentication-card>
+    </x-authentication-card>
 </x-guest-layout>

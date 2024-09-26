@@ -16,7 +16,7 @@ return new class extends Migration
             $table->text('question');
             $table->text('answer');
             $table->string('status',10);
-            $table->integer('order_position')->default(null);
+            $table->integer('order_position')->default(null)->nullable();
             $table->timestamps();
         });
     }

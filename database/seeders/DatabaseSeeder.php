@@ -16,12 +16,13 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         $this->call([
-            CategorySeeder::class,
-            RoleSeeder::class,
-            UserTableSeeder::class,
-            SettingSeeder::class,
-            ArticleSeeder::class,
-            FaqSeeder::class,
+            // CategorySeeder::class,
+            // RoleSeeder::class,
+            // UserTableSeeder::class,
+            // SettingSeeder::class,
+            // ArticleSeeder::class,
+            // FaqSeeder::class,
+            FactSeeder::class,
         ]);
     }
 }

@@ -3,6 +3,15 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+//
+use App\Http\Controllers\Frontend\ArticleController;
+use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Frontend\FactController;
+use App\Http\Controllers\Frontend\FaqController;
+use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\PageController;
+use App\Http\Controllers\Frontend\SearchController;
+use App\Http\Controllers\Frontend\TopicController;
 
 // Livewire
 use App\Livewire\Admin\AboutUs;
@@ -24,6 +33,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Frontend
+Route::get('/search', [SearchController::class, 'search'])->name('quote.search');
+
+Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
+Route::get('/articles/{slug}', [ArticleController::class, 'show']);
+Route::get('articles/tag/{tag}', [ArticleController::class, 'showByTag']);
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+
+Route::get('/faqs', [FaqController::class, 'index'])->name('faqs');
+
+Route::get('/about', [PageController::class, 'about'])->name('about');
+Route::get('/privacy-policy', [PageController::class, 'policy'])->name('privacy-policy');
+Route::get('/terms', [PageController::class, 'terms'])->name('terms');
+
+// Admin
 Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->name('admin')->group(function () {
     Route::get('dashboard', Dashboard::class)->name('dashboard');
 

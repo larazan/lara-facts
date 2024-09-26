@@ -1,10 +1,10 @@
 <x-guest-layout>
-    <x-jet-authentication-card>
+    <x-authentication-card>
         <x-slot name="logo"></x-slot>
 
     <div class="w-full sm:max-w-lg mx-auto flex flex-col gap-4 p-4 bg-white ">
         <div class="mx-auto max-w-sm">
-            <x-jet-authentication-card-logo />
+            <x-authentication-card-logo />
         </div>        
         <div class="mb-4 text-sm text-gray-600">
             {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
@@ -16,14 +16,14 @@
             </div>
         @endif
 
-        <x-jet-validation-errors class="mb-4" />
+        <x-validation-errors class="mb-4" />
 
         <form method="POST" action="{{ route('password.email') }}">
             @csrf
 
             <div class="block">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                <x-label for="email" value="{{ __('Email') }}" />
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
             <div class="flex items-center justify-end mt-4">
@@ -36,5 +36,5 @@
     </div>
  
 
-    </x-jet-authentication-card>
+    </x-authentication-card>
 </x-guest-layout>

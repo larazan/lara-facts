@@ -45,7 +45,6 @@ class User extends Authenticatable
         'password',
         'username',
         'type',
-        'remember_token',
         'bio',
     ];
 
