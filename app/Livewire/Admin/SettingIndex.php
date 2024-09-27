@@ -49,16 +49,16 @@ class SettingIndex extends Component
         $facebook = Setting::where(['key' => 'facebook'])->first();
         $instagram = Setting::where(['key' => 'instagram'])->first();
 
-        $this->title = $title->value ? $title->value : '';
-        $this->metaTitle = $meta_title->value ? $meta_title->value : '';
-        $this->metaDescription = $meta_description->value ? $meta_description->value : '';
-        $this->metaKeyword = $meta_keyword->value ? $meta_keyword->value : '';
-        $this->email = $email->value ? $email->value : '';
-        $this->phone = $phone->value ? $phone->value : '';
-        $this->address = $address->value ? $address->value : '';
-        $this->twitter = $twitter->value ? $twitter->value : '';
-        $this->facebook = $facebook->value ? $facebook->value : '';
-        $this->instagram = $instagram->value ? $instagram->value : '';
+        $this->title = isset($title->value) ? $title->value : '';
+        $this->metaTitle = isset($meta_title->value) ? $meta_title->value : '';
+        $this->metaDescription = isset($meta_description->value) ? $meta_description->value : '';
+        $this->metaKeyword = isset($meta_keyword->value) ? $meta_keyword->value : '';
+        $this->email = isset($email->value) ? $email->value : '';
+        $this->phone = isset($phone->value) ? $phone->value : '';
+        $this->address = isset($address->value) ? $address->value : '';
+        $this->twitter = isset($twitter->value) ? $twitter->value : '';
+        $this->facebook = isset($facebook->value) ? $facebook->value : '';
+        $this->instagram = isset($instagram->value) ? $instagram->value : '';
                 
     }
 

@@ -2,12 +2,210 @@
 
 namespace App\Livewire\Admin\Fact;
 
+use App\Models\Fact;
+use App\Models\Category;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Laravel\Facades\Image;
+use Livewire\WithFileUploads;
 use Livewire\Component;
 
 class Edit extends Component
 {
+    use WithFileUploads;
+
+    public $title;
+	public $description;
+	public $body;
+    public $authorId;
+    public $categoryId;
+    public $factId;
+    public $factTags;
+    public $tags = [];
+    public $bgColor;
+    public $color;
+    public $file;
+    public $oldImage;
+    public $status;
+    public $factStatus = 0;
+    public $statuses = [
+        'active' => 0,
+        'inactive' => 1,
+    ];
+    public $categoryItem;
+
+    public $sort = 'asc';
+
+    protected $rules = [
+        'title' => 'required|min:3',
+        // 'file' => 'required|image|mimes:jpg,jpeg,png,svg,gif|max:2048',
+    ];
+
+    public function mount($factId)
+    {
+        // $this->fact = Fact::findOrFail($fact);
+        $this->factId = $factId;
+        $fact = Fact::find($factId);
+        $this->categoryId = $fact->category_id;
+        $this->title = $fact->title;
+        $this->body = $fact->description;
+        $this->bgColor = $fact->bgColor;
+        $this->color = $fact->color;
+        $this->factTags = $fact->tags;
+        $this->tags = isset($this->factTags) ? explode(',', $this->factTags) : [];
+        $this->authorId = $fact->author_id;
+        $this->oldImage = $fact->small;
+        $this->factStatus = $fact->status;
+    }
+
+    public function showEditModal($factId)
+    {
+        $this->reset(['title']);
+        $this->factId = $factId;
+        $fact = Fact::find($factId);
+        $this->categoryId = $fact->category_id;
+        $this->title = $fact->title;
+        $this->body = $fact->description;
+        $this->bgColor = $fact->bgColor;
+        $this->color = $fact->color;
+        $this->factTags = $fact->tags;
+        $this->tags = isset($this->factTags) ? explode(',', $this->factTags) : [];
+        $this->authorId = $fact->author_id;
+        $this->oldImage = $fact->small;
+        $this->factStatus = $fact->status;
+
+    }
+    
+    public function updateFact()
+    {
+        $this->validate();
+
+        $fact = Fact::findOrFail($this->factId);
+  
+        $new = Str::slug($this->title) . '_' . time();
+        
+        if ($this->factId) {
+            if ($fact) {
+
+                $fact->category_id = $this->categoryId;
+                $fact->author_id = isset($this->author) ? $this->author : Auth::user()->id;
+                $fact->title = $this->title;
+                $fact->slug = Str::slug($this->title);
+                $fact->description = $this->body;
+                $fact->bgColor = $this->bgColor;
+                $fact->color = $this->color;
+                $fact->tags = implode(',', $this->tags);
+                $fact->status = $this->factStatus;
+
+                if (!empty($this->file)) {
+                    // delete image
+                    $this->deleteImage($this->factId);
+
+                    $filename = $new . '.' . $this->file->getClientOriginalName();
+                    $filePath = $this->file->storeAs(Fact::UPLOAD_DIR, $filename, 'public');
+                    $resizedImage = $this->_resizeImage($this->file, $filename, Fact::UPLOAD_DIR);
+
+                    $fact->original = $filePath;
+                    $fact->small = $resizedImage['small'];
+                    $fact->medium = $resizedImage['medium'];
+                }
+
+                $fact->save();
+            }
+        }
+
+        $this->reset();
+        
+        $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Fact updated successfully']);
+    }
+
+    public function resetFilters()
+    {
+        $this->reset();
+    }
+
     public function render()
     {
-        return view('livewire.admin.fact.edit');
+        return view('livewire.admin.fact.edit')->with([
+            'categories' => Category::OrderBy('name', $this->sort)->get(),
+        ]);
+    }
+
+    private function _resizeImage($image, $fileName, $folder)
+	{
+		$resizedImage = [];
+
+        // SMALL
+		$smallImageFilePath = $folder . '/small/' . $fileName;
+		$size = explode('x', Fact::SMALL);
+		list($width, $height) = $size;
+
+		$smallImageFile = Image::make($image)->fit($width, $height)->stream();
+		if (Storage::put('public/' . $smallImageFilePath, $smallImageFile)) {
+			$resizedImage['small'] = $smallImageFilePath;
+		}
+		
+        // MEDIUM
+		$mediumImageFilePath = $folder . '/medium/' . $fileName;
+		$size = explode('x', Fact::MEDIUM);
+		list($width, $height) = $size;
+
+		$mediumImageFile = Image::make($image)->fit($width, $height)->stream();
+		if (Storage::put('public/' . $mediumImageFilePath, $mediumImageFile)) {
+			$resizedImage['medium'] = $mediumImageFilePath;
+		}
+
+        // LARGE
+		// $largeImageFilePath = $folder . '/large/' . $fileName;
+		// $size = explode('x', Fact::LARGE);
+		// list($width, $height) = $size;
+
+		// $largeImageFile = Image::make($image)->fit($width, $height)->stream();
+		// if (Storage::put('public/' . $largeImageFilePath, $largeImageFile)) {
+		// 	$resizedImage['large'] = $largeImageFilePath;
+		// }
+
+        // EXTRA_LARGE
+		// $extraLargeImageFilePath  = $folder . '/xlarge/' . $fileName;
+		// $size = explode('x', Fact::EXTRA_LARGE);
+		// list($width, $height) = $size;
+
+		// $extraLargeImageFile = Image::make($image)->fit($width, $height)->stream();
+		// if (Storage::put('public/' . $extraLargeImageFilePath, $extraLargeImageFile)) {
+		// 	$resizedImage['extra_large'] = $extraLargeImageFilePath;
+		// }
+
+		return $resizedImage;
+	}
+
+    public function deleteImage($id = null) {
+        $factImage = Fact::where(['id' => $id])->first();
+		$path = 'storage/';
+
+        if (Storage::exists($path.$factImage->original)) {
+            Storage::delete($path.$factImage->original);
+		}
+		
+        if (Storage::exists($path.$factImage->small)) {
+            Storage::delete($path.$factImage->small);
+        }   
+
+		if (Storage::exists($path.$factImage->medium)) {
+            Storage::delete($path.$factImage->medium);
+        }
+             
+        return true;
+    }
+
+    public function categoryAdd()
+    {   
+        Category::create([
+          'name' => $this->categoryItem,
+          'slug' => Str::slug($this->categoryItem),
+        ]);
+
+        $this->reset('categoryItem');
+        // $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Category created successfully']);
     }
 }

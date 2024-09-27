@@ -34,6 +34,13 @@ Route::get('/', function () {
 });
 
 // Frontend
+Route::middleware(['throttle:global'])->group(function () {
+    Route::get('facts', [FactController::class, 'index'])->name('facts');
+    Route::get('facts/{id}', [FactController::class, 'show']);
+    Route::get('facts/{id}/customize', [FactController::class, 'customize']);
+});
+Route::get('facts/tag/{tag}', [FactController::class, 'showByTag']);
+
 Route::get('/search', [SearchController::class, 'search'])->name('quote.search');
 
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
@@ -45,9 +52,15 @@ Route::post('/contact', [ContactController::class, 'submit'])->name('contact.sub
 
 Route::get('/faqs', [FaqController::class, 'index'])->name('faqs');
 
+Route::get('topic', [TopicController::class, 'index'])->name('topic');
+Route::get('topic/all', [TopicController::class, 'getTags']);
+Route::get('topic/{letter}', [TopicController::class, 'show']);
+
 Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/privacy-policy', [PageController::class, 'policy'])->name('privacy-policy');
 Route::get('/terms', [PageController::class, 'terms'])->name('terms');
+
+// Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Admin
 Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->name('admin')->group(function () {

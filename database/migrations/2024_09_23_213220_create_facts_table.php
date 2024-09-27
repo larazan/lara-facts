@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('slug');
             $table->text('description')->nullable();
             $table->string('tags')->nullable();
+            $table->string('bgColor')->nullable();
+            $table->string('color')->nullable();
             $table->string('original')->nullable();
             $table->string('medium')->nullable();
             $table->string('small')->nullable();

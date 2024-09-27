@@ -23,6 +23,8 @@ class Fact extends Model
 		'author_id',
 		'category_id',
 		'tags',
+		'bgColor',
+		'color',
         'original',
         'medium',
         'small',
