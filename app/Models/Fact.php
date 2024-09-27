@@ -82,4 +82,16 @@ class Fact extends Model
     {
         return $this->description;
     }
+
+    public function wordsCount()
+    {
+        return str_word_count($this->title());
+        // 1080 x 1350 (4:5 ratio)
+    }
+
+    public function category($categoryId)
+	{
+		$category = Category::where('id', $categoryId)->first();
+		return $category->name;
+	}
 }

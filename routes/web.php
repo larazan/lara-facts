@@ -63,16 +63,16 @@ Route::get('/terms', [PageController::class, 'terms'])->name('terms');
 // Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Admin
-Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->name('admin')->group(function () {
+Route::middleware(['auth:sanctum', 'verified'])->prefix('admin')->name('admin')->group(function () {
     Route::get('dashboard', Dashboard::class)->name('dashboard');
 
-    Route::prefix('articles')->name('articles.')->group(function () {
+    Route::prefix('article')->name('articles.')->group(function () {
         Route::get('create', \App\Livewire\Admin\Article\Create::class)->name('create');
         Route::get('all', \App\Livewire\Admin\Article\Index::class)->name('all');
         Route::get('{articleId}/update', \App\Livewire\Admin\Article\Edit::class)->name('edit');
     });
 
-    Route::prefix('facts')->name('facts.')->group(function () {
+    Route::prefix('fact')->name('facts.')->group(function () {
         Route::get('create', \App\Livewire\Admin\Fact\Create::class)->name('create');
         Route::get('all', \App\Livewire\Admin\Fact\Index::class)->name('all');
         Route::get('{factId}/update', \App\Livewire\Admin\Fact\Edit::class)->name('edit');

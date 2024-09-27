@@ -98,24 +98,10 @@
           <div>
             <nav aria-label="Footer Navigation - Company" class="mt-0 md:mt-6">
               <ul class="space-y-2 text-md font-mabrybold">
+                
+                
                 <li>
-                  <a href="{{ route('quotes') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
-                    Quotes
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ route('riddles') }}" class="hidden font-bold text-gray-900 transition hover:text-[#FF6D42]">
-                    Riddles
-                  </a>
-                </li>
-                <li>
-                  <a href="{{ route('people') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
-                    People
-                  </a>
-                </li>
-                <li>
-                  <a href="{{ route('tags') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
+                  <a href="{{ route('topic') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
                     Topics
                   </a>
                 </li>

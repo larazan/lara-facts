@@ -28,10 +28,10 @@ class Create extends Component
     public $file;
     public $oldImage;
     public $status;
-    public $factStatus = 0;
+    public $factStatus = 'inactive';
     public $statuses = [
-        'active' => 0,
-        'inactive' => 1,
+        'active',
+        'inactive',
     ];
     public $categoryItem;
 

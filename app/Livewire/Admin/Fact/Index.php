@@ -52,7 +52,7 @@ class Index extends Component
     public function render()
     {
         return view('livewire.admin.fact.index')->with([
-            'fact' => Fact::liveSearch('title', $this->search)->orderBy('id', $this->sort)->paginate($this->perPage),
+            'facts' => Fact::liveSearch('title', $this->search)->orderBy('id', $this->sort)->paginate($this->perPage),
         ]);
     }
 

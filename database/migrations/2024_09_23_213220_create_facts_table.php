@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('original')->nullable();
             $table->string('medium')->nullable();
             $table->string('small')->nullable();
-            $table->integer('status')->default(0);
+            $table->string('status', 10)->default('active');
             $table->dateTime('posted_at')->nullable();
             $table->timestamps();
         });
