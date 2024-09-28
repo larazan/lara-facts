@@ -72,38 +72,22 @@
                             </div>
                         </a>
                     </li>
-                    
-                     
-                    <!-- Category -->
-                    <li class="vn vr rounded-sm n_ ww @if(in_array(Request::segment(2), ['category'])){{ 'bg-slate-900' }}@else{{ '' }}@endif">
-                        <a class="block gj xc ld wt wi" href="{{ url('admin/categories') }}">
-                            <div class="flex items-center">
-                                <svg class="ub so oi" viewBox="0 0 24 24">
-                                        <path class="du @if(in_array(Request::segment(2), ['categories'])){{ 'text-indigo-500' }}@else{{ 'g_' }}@endif" d="M18.974 8H22a2 2 0 012 2v6h-2v5a1 1 0 01-1 1h-2a1 1 0 01-1-1v-5h-2v-6a2 2 0 012-2h.974zM20 7a2 2 0 11-.001-3.999A2 2 0 0120 7zM2.974 8H6a2 2 0 012 2v6H6v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5H0v-6a2 2 0 012-2h.974zM4 7a2 2 0 11-.001-3.999A2 2 0 014 7z"></path>
-                                        <path class="du @if(in_array(Request::segment(2), ['categories'])){{ 'text-indigo-300' }}@else{{ 'gq' }}@endif" d="M12 6a3 3 0 110-6 3 3 0 010 6zm2 18h-4a1 1 0 01-1-1v-6H6v-6a3 3 0 013-3h6a3 3 0 013 3v6h-3v6a1 1 0 01-1 1z"></path>
-                                    </svg>
-                                <span class="text-sm gp ml-3 ttw tnn 2xl:opacity--100 wr">Category</span>
-                            </div>
-                        </a>
-                    </li>
-                    
-                     <!-- Tags -->
-                    <li class="vn vr rounded-sm n_ ww @if(in_array(Request::segment(2), ['tags', 'tagslist'])){{ 'bg-slate-900' }}@else{{ '' }}@endif" x-data="{ open: false }">
+
+                    <!-- Facts -->
+                    <li class="vn vr rounded-sm n_ ww @if(in_array(Request::segment(2), ['categories', 'fact'])){{ 'bg-slate-900' }}@else{{ '' }}@endif" x-data="{ open: false }">
                         <a class="block gj xc ld wt wi" href="#0" @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">
                             <div class="flex items-center fe">
                                 <div class="flex items-center">
                                     <svg class="ub so oi" viewBox="0 0 24 24">
-                                        <circle class="du @if(in_array(Request::segment(2), ['tags', 'tagslist'])){{ 'text-indigo-300' }}@else{{ 'gq' }}@endif" cx="18.5" cy="5.5" r="4.5"></circle>
-                                        <circle class="du @if(in_array(Request::segment(2), ['tags', 'tagslist'])){{ 'text-indigo-500' }}@else{{ 'g_' }}@endif" cx="5.5" cy="5.5" r="4.5"></circle>
-                                        <circle class="du @if(in_array(Request::segment(2), ['tags', 'tagslist'])){{ 'text-indigo-500' }}@else{{ 'g_' }}@endif" cx="18.5" cy="18.5" r="4.5"></circle>
-                                        <circle class="du @if(in_array(Request::segment(2), ['tags', 'tagslist'])){{ 'text-indigo-300' }}@else{{ 'gq' }}@endif" cx="5.5" cy="18.5" r="4.5"></circle>
+                                        <path class="du @if(in_array(Request::segment(2), ['categories', 'fact'])){{ 'text-indigo-500' }}@else{{ 'g_' }}@endif" d="M20 7a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 0120 7zM4 23a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 014 23z"></path>
+                                        <path class="du @if(in_array(Request::segment(2), ['categories', 'fact'])){{ 'text-indigo-300' }}@else{{ 'gq' }}@endif" d="M17 23a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 010-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1zM7 13a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 112 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z"></path>
                                     </svg>
 
-                                    <span class="text-sm gp ml-3 ttw tnn 2xl:opacity--100 wr">Tags</span>
+                                    <span class="text-sm gp ml-3 ttw tnn 2xl:opacity--100 wr">Facts</span>
                                 </div>
                                 <!-- Icon -->
                                 <div class="flex shrink-0 ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                                    <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-slate-400 @if(in_array(Request::segment(2), ['tags', 'tagslist'])){{ 'rotate-180' }}@endif" :class="open ? 'rotate-180' : 'rotate-0'" viewBox="0 0 12 12">
+                                    <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-slate-400 @if(in_array(Request::segment(2), ['categories', 'fact'])){{ 'rotate-180' }}@endif" :class="open ? 'rotate-180' : 'rotate-0'" viewBox="0 0 12 12">
                                         <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
                                     </svg>
                                 </div>
@@ -111,36 +95,22 @@
                             </div>
                         </a>
                         <div class="tex ttj 2xl:block">
-                            <ul class="me re @if(!in_array(Request::segment(2), ['tags', 'tagslist'])){{ 'hidden' }}@else{ !block }@endif" :class="open ? '!block' : 'hidden'">
+                            <ul class="me re @if(!in_array(Request::segment(2), ['categories', 'fact'])){{ 'hidden' }}@else{ !block }@endif" :class="open ? '!block' : 'hidden'">
                                 <li class="rt ww">
-                                    <a class="block @if(in_array(Request::segment(2), ['tags'])){{ 'text-indigo-500' }}@else{{ 'gq hover--text-slate-200' }}@endif wt wi ld" href="{{ url('admin/tags') }}">
-                                        <span class="text-sm gp ttw tnn 2xl:opacity--100 wr">Tags</span>
+                                    <a class="block @if(in_array(Request::segment(2), ['fact'])){{ 'text-indigo-500' }}@else{{ 'gq hover--text-slate-200' }}@endif wt wi ld" href="{{ url('admin/fact/all') }}">
+                                        <span class="text-sm gp ttw tnn 2xl:opacity--100 wr">Facts</span>
                                     </a>
                                 </li>
                                 <li class="rt ww">
-                                    <a class="block @if(in_array(Request::segment(2), ['tagslist'])){{ 'text-indigo-500' }}@else{{ 'gq hover--text-slate-200' }}@endif wt wi ld" href="{{ url('admin/tagslist') }}">
-                                        <span class="text-sm gp ttw tnn 2xl:opacity--100 wr">Tag list</span>
+                                    <a class="block @if(in_array(Request::segment(2), ['categories'])){{ 'text-indigo-500' }}@else{{ 'gq hover--text-slate-200' }}@endif wt wi ld" href="{{ url('admin/categories') }}">
+                                        <span class="text-sm gp ttw tnn 2xl:opacity--100 wr">Categories</span>
                                     </a>
                                 </li>
                               
                             </ul>
                         </div>
                     </li>
-
-                    <!-- Facts -->
-                    <li class="vn vr rounded-sm n_ ww @if(in_array(Request::segment(2), ['facts'])){{ 'bg-slate-900' }}@else{{ '' }}@endif">
-                        <a class="block gj xc ld wt wi" href="{{ url('admin/fact/all') }}">
-                            <div class="flex items-center">
-                                <svg class="ub so oi" viewBox="0 0 24 24">
-                                    <path class="du @if(in_array(Request::segment(2), ['fact'])){{ 'text-indigo-500' }}@else{{ 'g_' }}@endif" d="M20 7a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 0120 7zM4 23a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 014 23z"></path>
-                                    <path class="du @if(in_array(Request::segment(2), ['fact'])){{ 'text-indigo-300' }}@else{{ 'gq' }}@endif" d="M17 23a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 010-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1zM7 13a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 112 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z"></path>
-                                </svg>
-                                <span class="text-sm gp ml-3 ttw tnn 2xl:opacity--100 wr">Facts</span>
-                            </div>
-                        </a>
-                    </li>
                    
-                    
                     <!-- News -->
                     <li class="vn vr rounded-sm n_ ww @if(in_array(Request::segment(2), ['articles', 'category-article'])){{ 'bg-slate-900' }}@else{{ '' }}@endif" x-data="{ open: false }">
                         <a class="block gj xc ld wt wi" href="#0" @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">
@@ -188,6 +158,95 @@
                             </ul>
                         </div>
                     </li>
+
+                    <!-- Tags -->
+                    <li class="vn vr rounded-sm n_ ww @if(in_array(Request::segment(2), ['tags', 'tagslist'])){{ 'bg-slate-900' }}@else{{ '' }}@endif" x-data="{ open: false }">
+                        <a class="block gj xc ld wt wi" href="#0" @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">
+                            <div class="flex items-center fe">
+                                <div class="flex items-center">
+                                    <svg class="ub so oi" viewBox="0 0 24 24">
+                                        <circle class="du @if(in_array(Request::segment(2), ['tags', 'tagslist'])){{ 'text-indigo-300' }}@else{{ 'gq' }}@endif" cx="18.5" cy="5.5" r="4.5"></circle>
+                                        <circle class="du @if(in_array(Request::segment(2), ['tags', 'tagslist'])){{ 'text-indigo-500' }}@else{{ 'g_' }}@endif" cx="5.5" cy="5.5" r="4.5"></circle>
+                                        <circle class="du @if(in_array(Request::segment(2), ['tags', 'tagslist'])){{ 'text-indigo-500' }}@else{{ 'g_' }}@endif" cx="18.5" cy="18.5" r="4.5"></circle>
+                                        <circle class="du @if(in_array(Request::segment(2), ['tags', 'tagslist'])){{ 'text-indigo-300' }}@else{{ 'gq' }}@endif" cx="5.5" cy="18.5" r="4.5"></circle>
+                                    </svg>
+
+                                    <span class="text-sm gp ml-3 ttw tnn 2xl:opacity--100 wr">Tags</span>
+                                </div>
+                                <!-- Icon -->
+                                <div class="flex shrink-0 ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                    <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-slate-400 @if(in_array(Request::segment(2), ['tags', 'tagslist'])){{ 'rotate-180' }}@endif" :class="open ? 'rotate-180' : 'rotate-0'" viewBox="0 0 12 12">
+                                        <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
+                                    </svg>
+                                </div>
+                               
+                            </div>
+                        </a>
+                        <div class="tex ttj 2xl:block">
+                            <ul class="me re @if(!in_array(Request::segment(2), ['tags', 'tagslist'])){{ 'hidden' }}@else{ !block }@endif" :class="open ? '!block' : 'hidden'">
+                                <li class="rt ww">
+                                    <a class="block @if(in_array(Request::segment(2), ['tags'])){{ 'text-indigo-500' }}@else{{ 'gq hover--text-slate-200' }}@endif wt wi ld" href="{{ url('admin/tags') }}">
+                                        <span class="text-sm gp ttw tnn 2xl:opacity--100 wr">Tags</span>
+                                    </a>
+                                </li>
+                                <li class="rt ww">
+                                    <a class="block @if(in_array(Request::segment(2), ['tagslist'])){{ 'text-indigo-500' }}@else{{ 'gq hover--text-slate-200' }}@endif wt wi ld" href="{{ url('admin/tagslist') }}">
+                                        <span class="text-sm gp ttw tnn 2xl:opacity--100 wr">Tag list</span>
+                                    </a>
+                                </li>
+                              
+                            </ul>
+                        </div>
+                    </li>
+
+                    <!-- Pages -->
+                    <li class="vn vr rounded-sm n_ ww @if(in_array(Request::segment(2), ['faqs', 'about-us', 'privacy-policy', 'term-condition', 'refund-policy', 'shipping-policy'])){{ 'bg-slate-900' }}@else{{ '' }}@endif" x-data="{ open: false }">
+                        <a class="block gj xc ld wt wi" href="#0" @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">
+                            <div class="flex items-center fe">
+                                <div class="flex items-center">
+                                    <svg class="ub so oi" viewBox="0 0 24 24">
+                                        <path class="du @if(in_array(Request::segment(2), ['faqs', 'about-us', 'privacy-policy', 'term-condition', 'refund-policy', 'shipping-policy'])){{ 'text-indigo-500' }}@else{{ 'gq' }}@endif" d="M13 15l11-7L11.504.136a1 1 0 00-1.019.007L0 7l13 8z"></path>
+                                        <path class="du @if(in_array(Request::segment(2), ['faqs', 'about-us', 'privacy-policy', 'term-condition', 'refund-policy', 'shipping-policy'])){{ 'text-indigo-500' }}@else{{ 'gz' }}@endif" d="M13 15L0 7v9c0 .355.189.685.496.864L13 24v-9z"></path>
+                                        <path class="du @if(in_array(Request::segment(2), ['faqs', 'about-us', 'privacy-policy', 'term-condition', 'refund-policy', 'shipping-policy'])){{ 'text-indigo-500' }}@else{{ 'g_' }}@endif" d="M13 15.047V24l10.573-7.181A.999.999 0 0024 16V8l-11 7.047z"></path>
+                                    </svg>
+                                    <span class="text-sm gp ml-3 ttw tnn 2xl:opacity--100 wr">Pages</span>
+                                </div>
+                                <!-- Icon -->
+                                <div class="flex shrink-0 ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                    <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-slate-400 @if(in_array(Request::segment(2), ['about-us', 'privacy-policy', 'term-condition', 'refund-policy', 'shipping-policy'])){{ 'rotate-180' }}@endif" :class="open ? 'rotate-180' : 'rotate-0'" viewBox="0 0 12 12">
+                                        <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="tex ttj 2xl:block">
+                            <ul class="me re @if(!in_array(Request::segment(2), ['faqs', 'about-us', 'privacy-policy', 'term-condition', 'refund-policy', 'shipping-policy'])){{ 'hidden' }}@else{ !block }@endif" :class="open ? '!block' : 'hidden'">
+                                <li class="rt ww">
+                                    <a class="block @if(in_array(Request::segment(2), ['faqs'])){{ 'text-indigo-500' }}@else{{ 'gq hover--text-slate-200' }}@endif wt wi ld" href="{{ url('admin/faqs') }}">
+                                        <span class="text-sm gp ttw tnn 2xl:opacity--100 wr">FAQs</span>
+                                    </a>
+                                </li>
+                                <li class="rt ww">
+                                    <a class="block @if(in_array(Request::segment(2), ['about-us'])){{ 'text-indigo-500' }}@else{{ 'gq hover--text-slate-200' }}@endif wt wi ld" href="{{ url('admin/about-us') }}">
+                                        <span class="text-sm gp ttw tnn 2xl:opacity--100 wr">About Us</span>
+                                    </a>
+                                </li>
+                                <li class="rt ww">
+                                    <a class="block @if(in_array(Request::segment(2), ['term-condition'])){{ 'text-indigo-500' }}@else{{ 'gq hover--text-slate-200' }}@endif wt wi ld" href="{{ url('admin/term-condition') }}">
+                                        <span class="text-sm gp ttw tnn 2xl:opacity--100 wr">Term and Condition</span>
+                                    </a>
+                                </li>
+                               
+                                <li class="rt ww">
+                                    <a class="block @if(in_array(Request::segment(2), ['privacy-policy'])){{ 'text-indigo-500' }}@else{{ 'gq hover--text-slate-200' }}@endif wt wi ld" href="{{ url('admin/privacy-policy') }}">
+                                        <span class="text-sm gp ttw tnn 2xl:opacity--100 wr">Privacy Policy</span>
+                                    </a>
+                                </li>
+                               
+                            </ul>
+                        </div>
+                    </li>
+
                     <!-- Advertising -->
                     <li class="vn vr rounded-sm n_ ww @if(in_array(Request::segment(2), ['adv-segments', 'advertisings'])){{ 'bg-slate-900' }}@else{{ '' }}@endif" x-data="{ open: false }">
                         <a class="block gj xc ld wt wi" href="#0" @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">
@@ -332,53 +391,7 @@
                             </ul>
                         </div>
                     </li>
-                    <!-- Pages -->
-                    <li class="vn vr rounded-sm n_ ww @if(in_array(Request::segment(2), ['faqs', 'about-us', 'privacy-policy', 'term-condition', 'refund-policy', 'shipping-policy'])){{ 'bg-slate-900' }}@else{{ '' }}@endif" x-data="{ open: false }">
-                        <a class="block gj xc ld wt wi" href="#0" @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">
-                            <div class="flex items-center fe">
-                                <div class="flex items-center">
-                                    <svg class="ub so oi" viewBox="0 0 24 24">
-                                        <path class="du @if(in_array(Request::segment(2), ['faqs', 'about-us', 'privacy-policy', 'term-condition', 'refund-policy', 'shipping-policy'])){{ 'text-indigo-500' }}@else{{ 'gq' }}@endif" d="M13 15l11-7L11.504.136a1 1 0 00-1.019.007L0 7l13 8z"></path>
-                                        <path class="du @if(in_array(Request::segment(2), ['faqs', 'about-us', 'privacy-policy', 'term-condition', 'refund-policy', 'shipping-policy'])){{ 'text-indigo-500' }}@else{{ 'gz' }}@endif" d="M13 15L0 7v9c0 .355.189.685.496.864L13 24v-9z"></path>
-                                        <path class="du @if(in_array(Request::segment(2), ['faqs', 'about-us', 'privacy-policy', 'term-condition', 'refund-policy', 'shipping-policy'])){{ 'text-indigo-500' }}@else{{ 'g_' }}@endif" d="M13 15.047V24l10.573-7.181A.999.999 0 0024 16V8l-11 7.047z"></path>
-                                    </svg>
-                                    <span class="text-sm gp ml-3 ttw tnn 2xl:opacity--100 wr">Pages</span>
-                                </div>
-                                <!-- Icon -->
-                                <div class="flex shrink-0 ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                                    <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-slate-400 @if(in_array(Request::segment(2), ['about-us', 'privacy-policy', 'term-condition', 'refund-policy', 'shipping-policy'])){{ 'rotate-180' }}@endif" :class="open ? 'rotate-180' : 'rotate-0'" viewBox="0 0 12 12">
-                                        <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="tex ttj 2xl:block">
-                            <ul class="me re @if(!in_array(Request::segment(2), ['faqs', 'about-us', 'privacy-policy', 'term-condition', 'refund-policy', 'shipping-policy'])){{ 'hidden' }}@else{ !block }@endif" :class="open ? '!block' : 'hidden'">
-                                <li class="rt ww">
-                                    <a class="block @if(in_array(Request::segment(2), ['faqs'])){{ 'text-indigo-500' }}@else{{ 'gq hover--text-slate-200' }}@endif wt wi ld" href="{{ url('admin/faqs') }}">
-                                        <span class="text-sm gp ttw tnn 2xl:opacity--100 wr">FAQs</span>
-                                    </a>
-                                </li>
-                                <li class="rt ww">
-                                    <a class="block @if(in_array(Request::segment(2), ['about-us'])){{ 'text-indigo-500' }}@else{{ 'gq hover--text-slate-200' }}@endif wt wi ld" href="{{ url('admin/about-us') }}">
-                                        <span class="text-sm gp ttw tnn 2xl:opacity--100 wr">About Us</span>
-                                    </a>
-                                </li>
-                                <li class="rt ww">
-                                    <a class="block @if(in_array(Request::segment(2), ['term-condition'])){{ 'text-indigo-500' }}@else{{ 'gq hover--text-slate-200' }}@endif wt wi ld" href="{{ url('admin/term-condition') }}">
-                                        <span class="text-sm gp ttw tnn 2xl:opacity--100 wr">Term and Condition</span>
-                                    </a>
-                                </li>
-                               
-                                <li class="rt ww">
-                                    <a class="block @if(in_array(Request::segment(2), ['privacy-policy'])){{ 'text-indigo-500' }}@else{{ 'gq hover--text-slate-200' }}@endif wt wi ld" href="{{ url('admin/privacy-policy') }}">
-                                        <span class="text-sm gp ttw tnn 2xl:opacity--100 wr">Privacy Policy</span>
-                                    </a>
-                                </li>
-                               
-                            </ul>
-                        </div>
-                    </li>
+                    
                     <!-- Utility -->
                     <li class="vn vr rounded-sm n_ ww @if(in_array(Request::segment(2), ['slides', 'reports', 'subscribers', 'contacts'])){{ 'bg-slate-900' }}@else{{ '' }}@endif" x-data="{ open: false }">
                         <a class="block gj xc ld wt wi" href="#0" @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">

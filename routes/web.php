@@ -64,7 +64,7 @@ Route::get('/terms', [PageController::class, 'terms'])->name('terms');
 
 // Admin
 Route::middleware(['auth:sanctum', 'verified'])->prefix('admin')->name('admin')->group(function () {
-    Route::get('dashboard', Dashboard::class)->name('dashboard');
+    Route::get('dashboard', Dashboard::class)->name('admin.dashboard');
 
     Route::prefix('article')->name('articles.')->group(function () {
         Route::get('create', \App\Livewire\Admin\Article\Create::class)->name('create');

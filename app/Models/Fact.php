@@ -16,6 +16,15 @@ class Fact extends Model
 
     protected $table = self::TABLE;
 
+    // column name of key
+    // protected $primaryKey = 'uuid';
+
+    // type of key
+    protected $keyType = 'string';
+
+    // whether the key is automatically incremented or not
+    public $incrementing = false;
+
     protected $fillable = [
 		'title',
 		'slug',
@@ -46,6 +55,16 @@ class Fact extends Model
                 $model->{$model->getKeyName()} = Str::uuid()->toString();
             }
         });
+    }
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'uuid';
     }
 
      /**

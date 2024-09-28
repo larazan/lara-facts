@@ -15,6 +15,7 @@ class Create extends Component
 {
     use WithFileUploads;
 
+    public $showMessage = false;
     public $title;
 	public $description;
 	public $body;

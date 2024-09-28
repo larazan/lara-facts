@@ -58,6 +58,6 @@ class Index extends Component
 
     public function gotoEdit($factId)
     {
-        return redirect('/admin/fact/'.$factId.'/update');
+        return redirect('admin/fact/'.$factId.'/update');
     }
 }
