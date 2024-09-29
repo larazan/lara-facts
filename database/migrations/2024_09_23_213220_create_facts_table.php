@@ -12,27 +12,24 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('facts', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('rand_id');
-            $table->unsignedBigInteger('parent_id')->nullable();
+            $table->uuid('id')->primary();
             $table->string('author_id')->nullable();
             $table->integer('category_id');
             $table->string('title')->nullable()->unique();
             $table->string('slug');
             $table->text('description')->nullable();
             $table->string('tags')->nullable();
-            $table->time('history_time')->nullable();
+            $table->dateTime('history_time')->nullable();
             $table->string('bgColor')->nullable();
             $table->string('color')->nullable();
             $table->string('original')->nullable();
             $table->string('medium')->nullable();
             $table->string('small')->nullable();
             $table->string('status', 10)->default('active');
-            $table->dateTime('posted_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('parent_id')->references('id')->on('facts');
+            $table->foreignUuid('parent_id')->references('id')->on('facts');
         });
     }
 

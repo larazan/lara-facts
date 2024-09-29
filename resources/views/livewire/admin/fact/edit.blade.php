@@ -14,6 +14,10 @@
                                     <div class="w-1/4 text-gray-600">
                                         <p class="font-medium text-lg">Fact Details</p>
                                         <p>Please fill out all the fields.</p>
+
+                                        <div class="sticky top-20 mt-5 flex w-full h-52 bg-blue-700 justify-center items-center">
+                                            <div class="text-white font-semibold text-3xl">A</div>
+                                        </div>
                                     </div>
 
                                     <div class="w-3/4 lg:col-span-2">
@@ -43,6 +47,12 @@
                                                     </div>
                                                     <div wire:ignore class="w-full flex flex-row pb-4 space-x-2 border-b items-center" x-show="openInput" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
                                                         <div class="w-1/2">
+                                                        <select wire:model="parentCategoryId" class="h-full mb-2 rounded-r border-t border-r border-b block appearance-none w-full bg-white border-gray-300 text-gray-700 py-2 px-4 pr-8 leading-tight focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none">
+                                                            <option value="" >Select Option</option>
+                                                            @foreach($parentCategory as $c)
+                                                            <option value="{{ $c->id }}">{{ $c->name }}</option>
+                                                            @endforeach
+                                                        </select>
                                                             <input wire:model="categoryItem" class="w-full s me2 xq2" type="text">
                                                         </div>
                                                         <div class="flex items-end">
@@ -85,6 +95,25 @@
 
                                                 <div class="col-start-1 sm:col-span-3">
                                                     <label for="title" class="block text-sm font-medium text-gray-700">
+                                                        Background Color
+                                                    </label>
+                                                    <x-background-color
+                                                        wire:model="bgColor"
+                                                        :options="$bgs" />
+
+                                                </div>
+
+                                                <div class="col-start-1 sm:col-span-3">
+                                                    <label for="title" class="block text-sm font-medium text-gray-700">
+                                                        Color
+                                                    </label>
+                                                    <x-color-select
+                                                        wire:model="color"
+                                                        :options="$colors" />
+                                                </div>
+
+                                                <div class="col-start-1 sm:col-span-3">
+                                                    <label for="title" class="block text-sm font-medium text-gray-700">
                                                         Tags
                                                     </label>
                                                     <div>
@@ -113,6 +142,13 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                </div>
+
+                                                <div class="col-start-1 sm:col-span-3">
+                                                    <label for="title" class="block text-sm font-medium text-gray-700">
+                                                        History Time
+                                                    </label>
+                                                    <x-flatpicker wire:model="historyTime"></x-flatpicker>
                                                 </div>
 
                                                 <div class="col-span-6 sm:col-span-3">

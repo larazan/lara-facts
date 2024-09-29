@@ -22,7 +22,7 @@ class Fact extends Model
     // use HasLikes;
     use HasTimestamps;
     use HasTags;
-    // use HasUuids;
+    use HasUuids;
 
     const TABLE = 'facts';
 
@@ -60,6 +60,36 @@ class Fact extends Model
 
     public const SMALL = '135x141';
 	public const MEDIUM = '312x400';
+
+    public static function boot() {
+        parent::boot();
+        // Auto generate UUID when creating data User
+        static::creating(function ($model) {
+            if (empty($model->{$model->getKeyName()})) {
+                $model->{$model->getKeyName()} = Str::uuid()->toString();
+            }
+        });
+    }
+
+     /**
+     * Kita override getIncrementing method
+     *
+     * Menonaktifkan auto increment
+     */
+    public function getIncrementing()
+    {
+        return false;
+    }
+
+    /**
+     * Kita override getKeyType method
+     *
+     * Memberi tahu laravel bahwa model ini menggunakan primary key bertipe string
+     */
+    public function getKeyType()
+    {
+        return 'string';
+    }
 
     public function id(): int
     {

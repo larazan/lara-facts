@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Laravel\Facades\Image;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 class Edit extends Component
@@ -16,6 +17,7 @@ class Edit extends Component
     use WithFileUploads;
 
     public $showMessage = false;
+    public $parentCategoryId;
     public $parentId;
     public $title;
 	public $description;
@@ -36,7 +38,109 @@ class Edit extends Component
         'active',
         'inactive',
     ];
+
+    #[Validate('required|min:3|unique:categories,name')]
     public $categoryItem;
+
+    public $bgs = [
+        '#000',
+        '#ead59e',
+        '#ee905f',
+        '#f49f91',
+        '#011528',
+        '#c04d9a',
+        '#f7f7f7',
+        '#e9dcd3',
+        '#f4e4d0',
+        '#90c9cf',
+        '#ffffeb',
+        '#4cc1bc',
+        '#468bdb',
+        '#212331',
+        '#f1d265',
+        '#efb4d2',
+        '#ebdddc',
+        '#e4c8c4',
+        '#009492',
+        '#e3d1cf',
+        '#2d2c31',
+        '#e8e29e',
+        '#f49f91',
+        '#e96379',
+        '#e8d7f7',
+        '#ee725a',
+        '#b3d3d8',
+        '#27215f',
+        '#f69b00',
+        '#f6e9d7',
+        '#a5abe4',
+        '#ffc0ca',
+        '#429eda',
+        '#f7f8f0',
+        '#fffefc',
+        '#fff0d9',
+        '#ffe1e7',
+        '#fbe3c0',
+        '#ff8a77',
+        '#dac757',
+        '#e1ca42',
+        '#bd6c3e',
+        '#fbf4e4',
+        '#f0ffeb',
+        '#f29b8f',
+        '#f2e1f7',
+        '#f09d5e',
+        '#d4bf42',
+        '#f09d60',
+        '#ffc7a3',
+    ];
+
+    public $colors = [
+        '#fff',
+        '#000',
+        '#fc9598',
+        '#ff8459',
+        '#dbba0c',
+        '#95c9a8',
+        '#425fa6',
+        '#a5abe4',
+        '#a088f6',
+        '#93caaa',
+        '#fa8764',
+        '#99b84e',
+        '#fc8c47',
+        '#febe96',
+        '#fef5e4',
+        '#dbf0d3',
+        '#ffe6f2',
+        '#ffffb3',
+        '#df775a',
+        '#436460',
+        '#f7b1ab',
+        '#d8c338',
+        '#f2c4c4',
+        '#8eb19c',
+        '#d4c058',
+        '#f9c095',
+        '#ffa8d5',
+        '#c3ae0b',
+        '#86c8f4',
+        '#ff9752',
+        '#fef5e4',
+        '#da6737',
+        '#223679',
+        '#cda0c6',
+        '#fd9e7e',
+        '#227a65',
+        '#8ba4dd',
+        '#fdf4e0',
+        '#70723d',
+        '#406653',
+        '#e26b46',
+        '#3b86c4',
+        '#a5442c',
+        '#1c4255',
+    ];
 
     public $sort = 'asc';
 
@@ -134,8 +238,10 @@ class Edit extends Component
 
     public function render()
     {
+        $parentCategory = Category::OrderBy('name', $this->sort)->where('parent_id', null)->get();
         return view('livewire.admin.fact.edit')->with([
             'categories' => Category::OrderBy('name', $this->sort)->get(),
+            'parentCategory' => $parentCategory,
         ]);
     }
 
@@ -207,9 +313,12 @@ class Edit extends Component
 
     public function categoryAdd()
     {   
+        // rules name category has unique value
+        $validated = $this->validate();
         Category::create([
-          'name' => $this->categoryItem,
-          'slug' => Str::slug($this->categoryItem),
+            'parent_id' => $this->parentCategoryId,
+            'name' => $this->categoryItem,
+            'slug' => Str::slug($this->categoryItem),
         ]);
 
         $this->reset('categoryItem');
