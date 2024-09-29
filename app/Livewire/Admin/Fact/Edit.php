@@ -16,6 +16,7 @@ class Edit extends Component
     use WithFileUploads;
 
     public $showMessage = false;
+    public $parentId;
     public $title;
 	public $description;
 	public $body;
@@ -26,6 +27,7 @@ class Edit extends Component
     public $tags = [];
     public $bgColor;
     public $color;
+    public $historyTime;
     public $file;
     public $oldImage;
     public $status;
@@ -48,11 +50,13 @@ class Edit extends Component
         // $this->fact = Fact::findOrFail($fact);
         $this->factId = $factId;
         $fact = Fact::find($factId);
+        $this->parentId = $fact->parent_id;
         $this->categoryId = $fact->category_id;
         $this->title = $fact->title;
         $this->body = $fact->description;
         $this->bgColor = $fact->bgColor;
         $this->color = $fact->color;
+        $this->historyTime = $fact->history_time;
         $this->factTags = $fact->tags;
         $this->tags = isset($this->factTags) ? explode(',', $this->factTags) : [];
         $this->authorId = $fact->author_id;
@@ -88,7 +92,8 @@ class Edit extends Component
         
         if ($this->factId) {
             if ($fact) {
-
+                $fact->parent_id = $this->parentId;
+                $fact->rand_id = Str::random(10);
                 $fact->category_id = $this->categoryId;
                 $fact->author_id = isset($this->author) ? $this->author : Auth::user()->id;
                 $fact->title = $this->title;
@@ -96,6 +101,7 @@ class Edit extends Component
                 $fact->description = $this->body;
                 $fact->bgColor = $this->bgColor;
                 $fact->color = $this->color;
+                $fact->history_time = $this->historyTime;
                 $fact->tags = implode(',', $this->tags);
                 $fact->status = $this->factStatus;
 

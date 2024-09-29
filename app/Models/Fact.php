@@ -2,30 +2,43 @@
 
 namespace App\Models;
 
+use App\Concerns\HasAuthor;
+use App\Concerns\HasLikes;
+use App\Concerns\HasSlug;
+use App\Concerns\HasTags;
+use App\Concerns\HasTimestamps;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
 class Fact extends Model
 {
     use HasFactory;
-    use HasUuids;
+    use SoftDeletes;
+    use HasAuthor;
+    use HasSlug;
+    // use HasLikes;
+    use HasTimestamps;
+    use HasTags;
+    // use HasUuids;
 
     const TABLE = 'facts';
 
     protected $table = self::TABLE;
 
-    // column name of key
-    // protected $primaryKey = 'uuid';
+    public const ACTIVE = 'active';
+    public const INACTIVE = 'inactive';
 
-    // type of key
-    protected $keyType = 'string';
-
-    // whether the key is automatically incremented or not
-    public $incrementing = false;
+    public const STATUSES = [
+        self::ACTIVE => 'active',
+        self::INACTIVE => 'inactive',
+    ];
 
     protected $fillable = [
+        'parent_id',
+        'rand_id',
 		'title',
 		'slug',
 		'description',
@@ -34,6 +47,7 @@ class Fact extends Model
 		'tags',
 		'bgColor',
 		'color',
+        'history_time',
         'original',
         'medium',
         'small',
@@ -46,46 +60,6 @@ class Fact extends Model
 
     public const SMALL = '135x141';
 	public const MEDIUM = '312x400';
-
-    public static function boot() {
-        parent::boot();
-        // Auto generate UUID when creating data User
-        static::creating(function ($model) {
-            if (empty($model->{$model->getKeyName()})) {
-                $model->{$model->getKeyName()} = Str::uuid()->toString();
-            }
-        });
-    }
-
-    /**
-     * Get the route key for the model.
-     *
-     * @return string
-     */
-    public function getRouteKeyName()
-    {
-        return 'uuid';
-    }
-
-     /**
-     * Kita override getIncrementing method
-     *
-     * Menonaktifkan auto increment
-     */
-    public function getIncrementing()
-    {
-        return false;
-    }
-
-    /**
-     * Kita override getKeyType method
-     *
-     * Memberi tahu laravel bahwa model ini menggunakan primary key bertipe string
-     */
-    public function getKeyType()
-    {
-        return 'string';
-    }
 
     public function id(): int
     {
@@ -102,10 +76,19 @@ class Fact extends Model
         return $this->description;
     }
 
+    public function excerpt(int $limit = 200): string
+    {
+        return Str::limit(strip_tags($this->title()), $limit);
+    }
+
     public function wordsCount()
     {
         return str_word_count($this->title());
-        // 1080 x 1350 (4:5 ratio)
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', self::ACTIVE);
     }
 
     public function category($categoryId)

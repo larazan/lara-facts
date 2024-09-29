@@ -16,6 +16,7 @@ class Create extends Component
     use WithFileUploads;
 
     public $showMessage = false;
+    public $parentId;
     public $title;
 	public $description;
 	public $body;
@@ -26,6 +27,7 @@ class Create extends Component
     public $tags = [];
     public $bgColor;
     public $color;
+    public $historyTime;
     public $file;
     public $oldImage;
     public $status;
@@ -57,6 +59,8 @@ class Create extends Component
         $new = Str::slug($this->title) . '_' . time();
 
         $fact = new Fact();
+        $fact->parent_id = $this->parentId;
+        $fact->rand_id = Str::random(10);
         $fact->category_id = $this->categoryId;
         $fact->author_id = Auth::user()->id;
         $fact->title = $this->title;
@@ -64,6 +68,7 @@ class Create extends Component
         $fact->description = $this->body;
         $fact->bgColor = $this->bgColor;
         $fact->color = $this->color;
+        $fact->history_time = $this->historyTime;
         $fact->tags = implode(',', $this->tags);
         $fact->status = $this->factStatus;
 

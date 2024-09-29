@@ -1,0 +1,4 @@
+testimoni
+topic / tag
+fact content series, fact related like product variant
+today fact based on time (dd-mm-yy)

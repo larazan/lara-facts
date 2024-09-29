@@ -17,7 +17,7 @@ class FactSeeder extends Seeder
     {
         $data = [
             [
-                'id' => Str::uuid(),
+                'rand_id' => Str::random(10),
                 'author_id' => 1,
                 'category_id' => 1,
                 'title' => 'Playing cards were first invented in Imperial China.',
@@ -28,7 +28,8 @@ class FactSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ],
             [
-                'id' => Str::uuid(),
+                'parent_id' => 1,
+                'rand_id' => Str::random(10),
                 'author_id' => 1,
                 'category_id' => 1,
                 'title' => 'The French devised the suits of hearts, diamonds, clubs, and spades.',
@@ -39,7 +40,8 @@ class FactSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ],
             [
-                'id' => Str::uuid(),
+                'parent_id' => 1,
+                'rand_id' => Str::random(10),
                 'author_id' => 1,
                 'category_id' => 1,
                 'title' => 'The "Dead Man\'s Hand" is a legendary poker hand, and it’s history is a bit dark.',
@@ -50,7 +52,8 @@ class FactSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ],
             [
-                'id' => Str::uuid(),
+                'parent_id' => 1,
+                'rand_id' => Str::random(10),
                 'author_id' => 1,
                 'category_id' => 1,
                 'title' => 'The Joker card has its roots in the game of Euchre.',
@@ -61,7 +64,8 @@ class FactSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ],
             [
-                'id' => Str::uuid(),
+                'parent_id' => 1,
+                'rand_id' => Str::random(10),
                 'author_id' => 1,
                 'category_id' => 1,
                 'title' => 'The "Venexiana Gold" deck is the most expensive one ever made.',
@@ -72,7 +76,8 @@ class FactSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ],
             [
-                'id' => Str::uuid(),
+                'parent_id' => 1,
+                'rand_id' => Str::random(10),
                 'author_id' => 1,
                 'category_id' => 1,
                 'title' => 'Tarot cards were originally used for playing games.',
@@ -83,7 +88,8 @@ class FactSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ],
             [
-                'id' => Str::uuid(),
+                'parent_id' => 1,
+                'rand_id' => Str::random(10),
                 'author_id' => 1,
                 'category_id' => 1,
                 'title' => 'The largest collection of playing card decks is over 11,000 sets.',
@@ -94,7 +100,8 @@ class FactSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ],
             [
-                'id' => Str::uuid(),
+                'parent_id' => 1,
+                'rand_id' => Str::random(10),
                 'author_id' => 1,
                 'category_id' => 1,
                 'title' => 'The oldest surviving deck of cards lives in New York.',
@@ -105,7 +112,8 @@ class FactSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ],
             [
-                'id' => Str::uuid(),
+                'parent_id' => 1,
+                'rand_id' => Str::random(10),
                 'author_id' => 1,
                 'category_id' => 1,
                 'title' => 'Karnöffel is the oldest known card game.',
@@ -116,7 +124,8 @@ class FactSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ],
             [
-                'id' => Str::uuid(),
+                'parent_id' => 1,
+                'rand_id' => Str::random(10),
                 'author_id' => 1,
                 'category_id' => 1,
                 'title' => 'The world\'s tiniest playing cards are a marvel of miniaturization.',
@@ -127,7 +136,8 @@ class FactSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ],
             [
-                'id' => Str::uuid(),
+                'parent_id' => 1,
+                'rand_id' => Str::random(10),
                 'author_id' => 1,
                 'category_id' => 1,
                 'title' => 'The Kings in a deck of cards are said to represent historical figures.',
@@ -138,7 +148,8 @@ class FactSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ],
             [
-                'id' => Str::uuid(),
+                'parent_id' => 1,
+                'rand_id' => Str::random(10),
                 'author_id' => 1,
                 'category_id' => 1,
                 'title' => 'The longest poker game lasted over 8 years.',
@@ -149,7 +160,8 @@ class FactSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ],
             [
-                'id' => Str::uuid(),
+                'parent_id' => 1,
+                'rand_id' => Str::random(10),
                 'author_id' => 1,
                 'category_id' => 1,
                 'title' => 'UNO was created by an Ohio barber in 1971.',
@@ -160,7 +172,8 @@ class FactSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ],
             [
-                'id' => Str::uuid(),
+                'parent_id' => 1,
+                'rand_id' => Str::random(10),
                 'author_id' => 1,
                 'category_id' => 1,
                 'title' => 'Waterproof playing cards exist, and that’s pretty cool.',
@@ -171,7 +184,8 @@ class FactSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ],
             [
-                'id' => Str::uuid(),
+                'parent_id' => 1,
+                'rand_id' => Str::random(10),
                 'author_id' => 1,
                 'category_id' => 1,
                 'title' => 'Vegas Casinos go through cards… fast.',
@@ -182,7 +196,8 @@ class FactSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ],
             [
-                'id' => Str::uuid(),
+                'parent_id' => 1,
+                'rand_id' => Str::random(10),
                 'author_id' => 1,
                 'category_id' => 1,
                 'title' => 'Most sets of cards are made by one company: USPCC.',
