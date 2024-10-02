@@ -3,3 +3,55 @@ topic / tag
 fact content series, fact related like product variant
 today fact based on time (dd-mm-yy)
 add color to fact form
+add search select category
+add dependent select category
+carousel fact content related
+
+#f64849
+#fcb446
+#ff8110
+#44b776
+#1cacb7
+#9db255
+#525389
+#3e9cd0
+#ff914c
+#7f60be
+#37a5e4
+#f8be43
+#734828
+#e03c3d
+#31dbf4
+#1d9fac
+#1f9fac
+#0399d6
+#323a4d
+#fad02c
+#f86146
+#c86cab
+#a75cc5
+#ff8110
+#fa6928
+#3e9cd0
+#2478c1
+#00b34d
+#37c451
+#f64849
+#f97d7f
+#93e1ed
+#f3cf95
+#f4d8a6
+#f5ad41
+#e7ce40
+#72aaa9
+#3e9cd0
+#6f9bcc
+#e85858
+#3e808c
+#fad02c
+#59595b
+#ab8262
+#faf3e9
+#850655
+#2d3563
+#7a46e6

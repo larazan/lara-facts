@@ -16,7 +16,7 @@
                                         <p>Please fill out all the fields.</p>
 
                                         <div class="sticky top-20 mt-5 flex w-full h-52 bg-blue-700 justify-center items-center">
-                                            <div class="text-white font-semibold text-3xl">A</div>
+                                            <div class="text-white font-semibold text-3xl">AaBbCc</div>
                                         </div>
                                     </div>
 
@@ -47,15 +47,16 @@
                                                     </div>
                                                     <div wire:ignore class="w-full flex flex-row pb-4 space-x-2 border-b items-center" x-show="openInput" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
                                                         <div class="w-1/2">
-                                                        <select wire:model="parentCategoryId" class="h-full mb-2 rounded-r border-t border-r border-b block appearance-none w-full bg-white border-gray-300 text-gray-700 py-2 px-4 pr-8 leading-tight focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none">
-                                                            <option value="" >Select Option</option>
-                                                            @foreach($parentCategory as $c)
-                                                            <option value="{{ $c->id }}">{{ $c->name }}</option>
-                                                            @endforeach
-                                                        </select>
+                                                            <select wire:model="parentCategoryId" class="h-full mb-2 rounded-r border-t border-r border-b block appearance-none w-full bg-white border-gray-300 text-gray-700 py-2 px-4 pr-8 leading-tight focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none">
+                                                                <option value="" >Select Option</option>
+                                                                @foreach($parentCategory as $c)
+                                                                <option value="{{ $c->id }}">{{ $c->name }}</option>
+                                                                @endforeach
+                                                            </select>
                                                             <input wire:model="categoryItem" class="w-full s me2 xq2" type="text">
+                                                            <div>@error('categoryItem') {{ $message }} @enderror</div>
                                                         </div>
-                                                        <div class="flex items-end">
+                                                        <div class="flex justify-end">
                                                             <div class="btn  cursor-pointer border-slate-200 hover--border-slate-300 ho xi ye" wire:click.prevent="categoryAdd" @click="openInput = ! openInput">Save</div>
                                                             <div class="btn  cursor-pointer border-slate-200 hover--border-slate-300 ha xo ye" @click="openInput = ! openInput">Close</div>
                                                         </div>

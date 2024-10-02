@@ -18,7 +18,6 @@ class FactSeeder extends Seeder
         $data = [
             [
                 'id' => Str::uuid(),
-                
                 'author_id' => 1,
                 'category_id' => 1,
                 'title' => 'Playing cards were first invented in Imperial China.',
@@ -208,6 +207,7 @@ class FactSeeder extends Seeder
                 'status' => 'active',
                 'created_at' => Carbon::now(),
             ],
+
         ];
 
         Fact::insert($data);
