@@ -7436,30 +7436,7 @@ class FunSeeder extends Seeder
                 'status' => 'active',
                 'created_at' => Carbon::now(),
             ],
-            // 
-            // 
-            [
-                'id' => Str::uuid(),
-                'author_id' => 1,
-                'category_id' => 1,
-                'title' => '',
-                'slug' => '',
-                'description' => '',
-                'tags' => 'Liberty, New York, statue',
-                'status' => 'active',
-                'created_at' => Carbon::now(),
-            ],
-            [
-                'id' => Str::uuid(),
-                'author_id' => 1,
-                'category_id' => 1,
-                'title' => '',
-                'slug' => '',
-                'description' => '',
-                'tags' => 'Liberty, New York, statue',
-                'status' => 'active',
-                'created_at' => Carbon::now(),
-            ],
+            
             
         ];
 
