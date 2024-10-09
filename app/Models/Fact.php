@@ -39,6 +39,7 @@ class Fact extends Model
     protected $fillable = [
         'parent_id',
         'rand_id',
+        'type',
 		'title',
 		'slug',
 		'description',

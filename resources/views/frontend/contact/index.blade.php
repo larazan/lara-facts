@@ -2,6 +2,8 @@
 
 @section('content')
 
+
+
 <main class="flex h-max py-8 md:py-20 bg-white pt-16 md:pt-[120px]" x-data="{ alertShow: true }">
     <div class="flex  w-full2">
 

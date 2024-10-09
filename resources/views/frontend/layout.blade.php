@@ -43,28 +43,30 @@
   @livewireStyles
 
   <style>
-    ::-webkit-scrollbar {
-      height: 12px;
-      width: 16px
+    #background-bar:after {
+      content: "";
+      background-color: #fff;
+      opacity: 1;
+      height: 250px;
+      width: 150%;
+      margin-left: -100px;
+      transform: rotate(2deg);
+      top: -25px;
+      z-index: 0;
     }
 
-    ::-webkit-scrollbar-track {
-      background: 0 0
+    #background-bar,
+    #background-bar:after {
+      position: absolute;
+      left: 0;
+      pointer-events: none;
     }
 
-    ::-webkit-scrollbar-thumb {
-      background: rgba(0, 0, 0, .2);
-      border: 4px solid #fff;
-      border-radius: 50px
-    }
-
-    .dark .overflow-y-auto::-webkit-scrollbar-thumb {
-      background: hsla(0, 0%, 100%, .2);
-      border: 4px solid #121927
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #12d3cf
+    #background-bar {
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
     }
 
     #menubar::-webkit-scrollbar-thumb {
@@ -81,6 +83,8 @@
 </head>
 
 <body x-data="{ filterOpen: false }">
+
+<div id="background-bar"></div>
 
   @include('frontend.layouts._header')
   @include('frontend.components._gotop')

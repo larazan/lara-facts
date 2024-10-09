@@ -16,6 +16,8 @@ class Edit extends Component
 {
     use WithFileUploads;
 
+    public $bgselect;
+    public $colorselect;
     public $showMessage = false;
     public $parentCategoryId;
     public $parentId;
@@ -27,11 +29,16 @@ class Edit extends Component
     public $factId;
     public $factTags;
     public $tags = [];
-    public $bgColor;
-    public $color;
+    public $bgColor = '#7f60be';
+    public $color = '#fff';
     public $historyTime;
     public $file;
     public $oldImage;
+    public $factType = 'single';
+    public $types = [
+        'single',
+        'series',
+    ];
     public $status;
     public $factStatus = 'inactive';
     public $statuses = [
@@ -43,56 +50,49 @@ class Edit extends Component
     public $categoryItem;
 
     public $bgs = [
-        '#000',
-        '#ead59e',
-        '#ee905f',
-        '#f49f91',
-        '#011528',
-        '#c04d9a',
-        '#f7f7f7',
-        '#e9dcd3',
-        '#f4e4d0',
-        '#90c9cf',
-        '#ffffeb',
-        '#4cc1bc',
-        '#468bdb',
-        '#212331',
-        '#f1d265',
-        '#efb4d2',
-        '#ebdddc',
-        '#e4c8c4',
-        '#009492',
-        '#e3d1cf',
-        '#2d2c31',
-        '#e8e29e',
-        '#f49f91',
-        '#e96379',
-        '#e8d7f7',
-        '#ee725a',
-        '#b3d3d8',
-        '#27215f',
-        '#f69b00',
-        '#f6e9d7',
-        '#a5abe4',
-        '#ffc0ca',
-        '#429eda',
-        '#f7f8f0',
-        '#fffefc',
-        '#fff0d9',
-        '#ffe1e7',
-        '#fbe3c0',
-        '#ff8a77',
-        '#dac757',
-        '#e1ca42',
-        '#bd6c3e',
-        '#fbf4e4',
-        '#f0ffeb',
-        '#f29b8f',
-        '#f2e1f7',
-        '#f09d5e',
-        '#d4bf42',
-        '#f09d60',
-        '#ffc7a3',
+        '#f64849',
+        '#fcb446',
+        '#ff8110',
+        '#44b776',
+        '#1cacb7',
+        '#9db255',
+        '#525389',
+        '#3e9cd0',
+        '#ff914c',
+        '#7f60be',
+        '#37a5e4',
+        '#f8be43',
+        '#734828',
+        '#e03c3d',
+        '#31dbf4',
+        '#1d9fac',
+        '#1f9fac',
+        '#0399d6',
+        '#323a4d',
+        '#fad02c',
+        '#f86146',
+        '#c86cab',
+        '#a75cc5',
+        '#fa6928',
+        '#2478c1',
+        '#00b34d',
+        '#37c451',
+        '#f97d7f',
+        '#93e1ed',
+        '#f3cf95',
+        '#f4d8a6',
+        '#f5ad41',
+        '#e7ce40',
+        '#72aaa9',
+        '#6f9bcc',
+        '#e85858',
+        '#3e808c',
+        '#59595b',
+        '#ab8262',
+        '#faf3e9',
+        '#850655',
+        '#2d3563',
+        '#7a46e6',
     ];
 
     public $colors = [
@@ -155,17 +155,24 @@ class Edit extends Component
         $this->factId = $factId;
         $fact = Fact::find($factId);
         $this->parentId = $fact->parent_id;
+        $this->factType = $fact->type;
         $this->categoryId = $fact->category_id;
         $this->title = $fact->title;
         $this->body = $fact->description;
-        $this->bgColor = $fact->bgColor;
-        $this->color = $fact->color;
+        $this->bgColor = $fact->bgColor ? $fact->bgColor : $this->bgColor;
+        $this->color = $fact->color ? $fact->color : $this->color;
         $this->historyTime = $fact->history_time;
         $this->factTags = $fact->tags;
         $this->tags = isset($this->factTags) ? explode(',', $this->factTags) : [];
         $this->authorId = $fact->author_id;
         $this->oldImage = $fact->small;
         $this->factStatus = $fact->status;
+    }
+
+    public function updated()
+    {
+        $this->bgColor = $this->bgselect ? $this->bgselect : $this->bgColor;
+        $this->color = $this->colorselect ? $this->colorselect : $this->color;
     }
 
     public function showEditModal($factId)
@@ -197,8 +204,9 @@ class Edit extends Component
         if ($this->factId) {
             if ($fact) {
                 $fact->parent_id = $this->parentId;
-                $fact->rand_id = Str::random(10);
+                // $fact->rand_id = Str::random(10);
                 $fact->category_id = $this->categoryId;
+                $fact->type = $this->factType;
                 $fact->author_id = isset($this->author) ? $this->author : Auth::user()->id;
                 $fact->title = $this->title;
                 $fact->slug = Str::slug($this->title);

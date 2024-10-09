@@ -1,7 +1,7 @@
 <main class="max-w-4xl mx-auto pt-10 pb-12 px-4 lg:pb-16">
     <div class="lg:grid lg:gap-x-5">
         <div class="sm:px-6 lg:px-0 lg:col-span-9">
-
+@dump($bgColor)
                 <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
 
                     <div class="container max-w-screen-lg mx-auto cl border-slate-200">
@@ -15,8 +15,8 @@
                                         <p class="font-medium text-lg">Fact Details</p>
                                         <p>Please fill out all the fields.</p>
 
-                                        <div class="sticky top-20 mt-5 flex w-full h-52 bg-blue-700 justify-center items-center">
-                                            <div class="text-white font-semibold text-3xl">AaBbCc</div>
+                                        <div  class="sticky top-20 mt-5 flex w-full h-52 justify-center items-center"  style="background-color: {{ $bgColor }};">
+                                            <div class="text-white2 font-semibold text-3xl" style="color: {{ $color }}">AaBbCc</div>
                                         </div>
                                     </div>
 
@@ -94,22 +94,22 @@
 
                                                 </div>
 
-                                                <div class="col-start-1 sm:col-span-3">
+                                                <div class="col-start-1 sm:col-span-3 space-y-2">
                                                     <label for="title" class="block text-sm font-medium text-gray-700">
-                                                        Background Color
+                                                        Background Color {{ $bgColor }}
                                                     </label>
                                                     <x-background-color
-                                                        wire:model="bgColor"
+                                                        wire:model.live="bgselect"
                                                         :options="$bgs" />
 
                                                 </div>
 
-                                                <div class="col-start-1 sm:col-span-3">
+                                                <div class="col-start-1 sm:col-span-3 space-y-2">
                                                     <label for="title" class="block text-sm font-medium text-gray-700">
-                                                        Color
+                                                        Color {{ $color }}
                                                     </label>
                                                     <x-color-select
-                                                        wire:model="color"
+                                                        wire:model.live="colorselect"
                                                         :options="$colors" />
                                                 </div>
 

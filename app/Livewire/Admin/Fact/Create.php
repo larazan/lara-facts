@@ -30,6 +30,11 @@ class Create extends Component
     public $historyTime;
     public $file;
     public $oldImage;
+    public $factType = 'single';
+    public $types = [
+        'single',
+        'series',
+    ];
     public $status;
     public $factStatus = 'inactive';
     public $statuses = [
@@ -60,7 +65,8 @@ class Create extends Component
 
         $fact = new Fact();
         $fact->parent_id = $this->parentId;
-        $fact->rand_id = Str::random(10);
+        // $fact->rand_id = Str::random(10);
+        $fact->type = $this->factType;
         $fact->category_id = $this->categoryId;
         $fact->author_id = Auth::user()->id;
         $fact->title = $this->title;

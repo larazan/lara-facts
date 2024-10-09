@@ -64,7 +64,7 @@ class Article extends Model
      */
     protected $with = [
         'authorRelation',
-        'likesRelation',
+        // 'likesRelation',
         // 'tagsRelation',
     ];
 
