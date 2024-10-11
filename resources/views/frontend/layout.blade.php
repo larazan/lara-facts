@@ -43,6 +43,34 @@
   @livewireStyles
 
   <style>
+    @font-face {
+      font-family: 'Pally-Bold';
+      src: local('Pally-Bold'), url(../../fonts/Pally-Bold.ttf) format('truetype');
+    }
+    @font-face {
+      font-family: 'Pally-Medium';
+      src: local('Pally-Medium'), url(../../fonts/Pally-Medium.ttf) format('truetype');
+    }
+    @font-face {
+      font-family: 'Pally-Regular';
+      src: local('Pally-Regular'), url(../../fonts/Pally-Regular.ttf) format('truetype');
+    }
+    @font-face {
+      font-family: 'Pally-Variable';
+      src: local('Pally-Variable'), url(../../fonts/Pally-Variable.ttf) format('truetype');
+    }
+
+    html {
+      line-height: 1.5;
+      -webkit-text-size-adjust: 100%;
+      -moz-tab-size: 4;
+      -o-tab-size: 4;
+      tab-size: 4;
+      font-family: "Pally-Medium",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+      font-feature-settings: normal;
+      font-variation-settings: normal
+  }
+
     #background-bar:after {
       content: "";
       background-color: #fff;
@@ -84,7 +112,7 @@
 
 <body x-data="{ filterOpen: false }">
 
-<div id="background-bar"></div>
+<!-- <div id="background-bar"></div> -->
 
   @include('frontend.layouts._header')
   @include('frontend.components._gotop')

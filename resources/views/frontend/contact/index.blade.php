@@ -2,9 +2,7 @@
 
 @section('content')
 
-
-
-<main class="flex h-max py-8 md:py-20 bg-white pt-16 md:pt-[120px]" x-data="{ alertShow: true }">
+<main class="flex h-max py-8 md:py-20 bg-[#fefbec] pt-20 md:pt-[120px]" x-data="{ alertShow: true }">
     <div class="flex  w-full2">
 
         <div class="max-w-full xl:max-w-[1800px] mx-auto flex flex-col justify-center items-center">
@@ -14,35 +12,17 @@
                 <div class="flex justify-center flex-col md:flex-row">
                     <div class="md:pr-[72px] md:max-w-[50%] md:w-[50%] pb-[48px] md:pb-0 ">
                         <div class="flex flex-col space-y-3">
-                            <h3 class="text-2xl md:text-4xl font-bold leading-8 text-black">
-                                Contact Us
+                            <h3 class="text-3xl md:text-5xl font-bold leading-8 text-black">
+                                have a question?
                             </h3>
                             <div>
-                                <h2 class="text-lg md:text-2xl font-semibold text-gray-900">
-                                    Customer Support
-                                </h2>
+                                
                                 <p class="text-gray-900  py-2 text-sm leading-tight">
-                                    Question about an order? Problem with your camera? Or just
-                                    looking for some free advice? Check out our
-                                    <a href="{{ url('faqs') }}" target="_blank" rel="noreferrer" class="underline break-all md:break-normal">
-                                        FAQs
-                                    </a>
-                                    , and if you’re still not sure, you can contact our
-                                    Customer Support team
-                                    <span rel="noreferrer" class="underline break-all md:break-normal">
-                                        here
-                                    </span>
-                                    .
+                                    We're here to help! Fill out the form or reach us via email or phone. Our Customer Care Team is available to help you get the best experience out of Million Fact whether you have an issue or looking for helpful tips.
                                 </p>
 
-                                <h2 class="text-lg md:text-2xl font-semibold text-gray-900">
-                                    Press
-                                </h2>
                                 <p class="text-gray-900  py-2 text-sm leading-tight">
-                                    If you&apos;re a journalist or blogger interested in photo and
-                                    interview requests, or just looking to know more about
-                                    Polaroid, get in touch with our press team at
-                                    press@polaroid.com
+                                    Everyone gets a personalized response, so please allow 24 hours during business hours for a reply. Our business hours are M-F from 9am to 5pm PT.
                                 </p>
 
                                 <h2 class="text-lg md:text-2xl font-semibold text-gray-900">
@@ -127,41 +107,41 @@
 
                         <div class="flex flex-col justify-start space-y-4 md:space-y-5">
                             <div class="flex flex-col space-y-1 md:space-y-2">
-                                <h2 class="text-lg md:text-3xl tracking-tight font-semibold text-black">
-                                    Send us a Message
+                                <h2 class="text-2xl md:text-3xl tracking font-semibold text-black">
+                                    Talk with Us
                                 </h2>
                             </div>
                             <form method="POST" action="{{ route('contact.submit') }}">
                             @csrf
                             <div class="flex flex-col max-w-md space-y-4 md:space-y-5">
                                 <div class="relative w-full">
-                                    <p class="text-black text-[11px] font-semibold uppercase tracking-tight">
+                                    <p class="text-black text-[11px] font-semibold uppercase tracking">
                                         NAME
                                     </p>
                                     <div class="relative items-center">
-                                        <input class="flex w-full px-2 py-2 md:px-2 md:py-2 border bg-white border-gray-300 rounded font-medium placeholder:font-normal" type="text" id="name" name="name" required />
+                                        <input class="flex w-full px-2 py-2 md:px-2 md:py-2 border bg-white border-gray-700 rounded-sm font-medium placeholder:font-normal" type="text" id="name" name="name" required />
                                     </div>
                                 </div>
                                 <div class="relative w-full">
-                                    <p class="text-black text-[11px] font-semibold uppercase tracking-tight">
+                                    <p class="text-black text-[11px] font-semibold uppercase tracking">
                                         Email Address
                                     </p>
-                                    <input type="email" id="email" name="email" required class="flex w-full px-2 py-2 md:px-2 md:py-2 border bg-white border-gray-300 rounded font-medium placeholder:font-normal" />
+                                    <input type="email" id="email" name="email" required class="flex w-full px-2 py-2 md:px-2 md:py-2 border bg-white border-gray-700 rounded-sm font-medium placeholder:font-normal" />
                                 </div>
                                 <div class="relative w-full">
-                                    <p class="text-black text-[11px] font-semibold uppercase tracking-tight">
+                                    <p class="text-black text-[11px] font-semibold uppercase tracking">
                                         subject
                                     </p>
-                                    <input type="text" id="subject" name="subject" required class="flex w-full px-2 py-2 md:px-2 md:py-2 border border-gray-300 rounded font-medium placeholder:font-normal" />
+                                    <input type="text" id="subject" name="subject" required class="flex w-full px-2 py-2 md:px-2 md:py-2 border border-gray-700 rounded-sm font-medium placeholder:font-normal" />
                                 </div>
                                 <div class="relative w-full">
-                                    <p class="text-black text-[11px] font-semibold uppercase tracking-tight">
+                                    <p class="text-black text-[11px] font-semibold uppercase tracking">
                                         message
                                     </p>
-                                    <textarea rows="4" cols="50" id="message" name="message" required class="flex w-full px-2 py-2 md:px-2 md:py-2 border bg-white border-gray-300 rounded font-medium placeholder:font-normal"></textarea>
+                                    <textarea rows="4" cols="50" id="message" name="message" required class="flex w-full px-2 py-2 md:px-2 md:py-2 border bg-white border-gray-700 rounded-sm font-medium placeholder:font-normal"></textarea>
                                 </div>
 
-                                <button type="submit" class="text-md font-bold rounded-full transition-[all] duration-300 ease-out cursor-pointer bg-black text-white border-2 border-black hover:bg-white hover:text-black hover:border-solid py-3 px-7 w-full">
+                                <button type="submit" class="text-md font-bold rounded-sm transition-all duration-300 ease-out cursor-pointer bg-[#8253dd] text-white border-2 border-[#8253dd] hover:bg-white hover:text-[#8253dd] hover:border-solid py-3 px-7 w-full">
                                     Submit
                                 </button>
                             </div>
@@ -175,6 +155,5 @@
     </div>
 </main>
 
-<livewire:newsletter-form />
 
 @endsection

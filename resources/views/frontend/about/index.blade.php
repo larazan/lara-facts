@@ -3,14 +3,14 @@
 @section('content')
 
 
-    <main class="flex bg-white min-h-screen pt-16 md:pt-[100px] max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+    <main class="flex bg-white min-h-screen pt-16 md:pt-[60px] max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div class="container mx-auto px-5 my-8">
             <div class="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto">
                 <div class="grid2 grid-cols-122 lg:grid-cols-3 gap-y-8 lg:gap-y-0 lg:gap-x-12">
                     <div class="lg:col-span-2">
                         <div class="py-8 lg:pr-8">
                             <div class="space-y-5 lg:space-y-8">
-                                <h1 class="text-3xl font-bold lg:text-4xl dark:text-white capitalize">About ColorBliss</h1>
+                                <h1 class="text-3xl font-bold lg:text-4xl text-gray-800 ">About ColorBliss</h1>
                                 <div class="flex items-center gap-x-5">
                                     <p class="text-xs sm:text-sm text-gray-800 dark:text-gray-200">Last updated: June 2024</p>
                                 </div>
@@ -24,7 +24,7 @@
                                     <p>I love working on ColorBliss, I love making coloring sheets and I love seeing what you make with ColorBliss.<!-- --> </p>
                                     <p>From me and my family - thank you for using ColorBliss!<!-- --> </p>
                                     <p class="mb-0">Happy coloring,</p>
-                                    <div class="flex items-center gap-x-4"><img alt="Ben Robertson profile" loading="lazy" width="50" height="50" decoding="async" data-nimg="1" class="rounded-full m-0" style="color:transparent" srcset="/_next/image?url=%2Favatar.png&amp;w=64&amp;q=75 1x, /_next/image?url=%2Favatar.png&amp;w=128&amp;q=75 2x" src="/_next/image?url=%2Favatar.png&amp;w=128&amp;q=75">
+                                    <div class="flex items-center gap-x-4">
                                         <p>Ben Robertson </p>
                                     </div>
                                 </div>

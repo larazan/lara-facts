@@ -29,9 +29,9 @@ use App\Livewire\Admin\TagListIndex;
 use App\Livewire\Admin\TermCondition;
 use App\Livewire\Admin\UserIndex;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Frontend
 Route::middleware(['throttle:global'])->group(function () {
@@ -57,10 +57,10 @@ Route::get('topic/all', [TopicController::class, 'getTags']);
 Route::get('topic/{letter}', [TopicController::class, 'show']);
 
 Route::get('/about', [PageController::class, 'about'])->name('about');
-Route::get('/privacy-policy', [PageController::class, 'policy'])->name('privacy-policy');
+Route::get('/policy', [PageController::class, 'policy'])->name('privacy-policy');
 Route::get('/terms', [PageController::class, 'terms'])->name('terms');
 
-// Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Admin
 Route::middleware(['auth:sanctum', 'verified'])->prefix('admin')->name('admin')->group(function () {
