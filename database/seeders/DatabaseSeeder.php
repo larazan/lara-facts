@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             ArticleSeeder::class,
             FaqSeeder::class,
             FactSeeder::class,
+            TagSeeder::class,
         ]);
     }
 }

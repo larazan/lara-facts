@@ -1,6 +1,6 @@
-<div class="flex flex-col gap-6 mt-10">
+<div class="flex flex-col gap-6 mt-16">
     <h2 class="font-medium text-2xl w-full text-center px-6 pally-medium">Here’s some of the features</h2>
-    <div class="grid px-6 lg:px-0 md:grid-cols-2 gap-6">
+    <div class="grid px-6 md:px-6 md:grid-cols-2 gap-6">
         <div class="relative rounded-lg p-6 overflow-hidden pr-30 pb-20" style="background-color: rgb(254, 211, 77);">
             <div class="flex flex-col gap-3 w-2/3 items-start">
                 <h4 class=" text-xl font-medium pally-medium">Fully Customizable Template</h4>

@@ -12,6 +12,7 @@
 <div class="flex flex-col bg-white min-h-screen pt-[60px] md:pt-[100px]">
     @include('frontend.components._hero')
     @include('frontend.components._content')
+    @include('frontend.components._category')
     <div class="flex flex-row w-full">
         <div class="flex flex-1 flex-col items-center justify-center relative">
 

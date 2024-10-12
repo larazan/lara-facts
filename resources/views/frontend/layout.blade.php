@@ -72,7 +72,8 @@
       tab-size: 4;
       font-family: "Pally-Regular",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
       font-feature-settings: normal;
-      font-variation-settings: normal
+      font-variation-settings: normal;
+      scroll-behavior: smooth;
   }
 
     .pally-bold {
