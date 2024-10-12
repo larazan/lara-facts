@@ -43,6 +43,10 @@
   @livewireStyles
 
   <style>
+    [x-cloak] {
+        display: none;
+    }
+
     @font-face {
       font-family: 'Pally-Bold';
       src: local('Pally-Bold'), url(../../fonts/Pally-Bold.ttf) format('truetype');
@@ -66,10 +70,23 @@
       -moz-tab-size: 4;
       -o-tab-size: 4;
       tab-size: 4;
-      font-family: "Pally-Medium",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+      font-family: "Pally-Regular",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
       font-feature-settings: normal;
       font-variation-settings: normal
   }
+
+    .pally-bold {
+      font-family: "Pally-Bold";
+    }
+    .pally-medium {
+      font-family: "Pally-Medium";
+    }
+    .pally-regular {
+      font-family: "Pally-Regular";
+    }
+    .pally-variable {
+      font-family: "Pally-Variable";
+    }
 
     #background-bar:after {
       content: "";
@@ -110,7 +127,7 @@
   </style>
 </head>
 
-<body x-data="{ filterOpen: false }">
+<body x-data="{ filterOpen: false, openSearch: false }">
 
 <!-- <div id="background-bar"></div> -->
 

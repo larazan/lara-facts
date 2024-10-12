@@ -15,7 +15,7 @@
           <div
             class="px-6 pt-24 md:pt-24 pb-8 md:pb-10"
           >
-            <h1 class="text-4xl sm:text-3xl md:text-4xl lg:text-5xl font-headline font-black tracking-snug text-center leading-12 sm:leading-15 md:leading-19 lg:leading-26 text-gray-800">
+            <h1 class="text-4xl sm:text-3xl md:text-4xl pally-medium lg:text-5xl font-headline font-black tracking-snug text-center leading-12 sm:leading-15 md:leading-19 lg:leading-26 text-gray-800">
               <span>Blog</span>
             </h1>
             <!-- <p class="text-gray-600 text-lg md:text-2xl text-center leading-normal md:leading-9 mt-3 md:mt-6">
@@ -129,7 +129,7 @@
                 <h2 class="px-4 py-6 text-center md:text-left bg-[#fed44e]">
                   <a
                     href="{{ url('/articles/' . $a->slug) }}"
-                    class="text-2xl md:text-3xl leading-8 md:leading-8 font-bold text-gray-800 hover:text-blue-700 transition ease-in-out duration-150"
+                    class="text-2xl md:text-3xl leading-8 md:leading-8 font-bold pally-medium text-gray-800 hover:text-blue-700 transition ease-in-out duration-150"
                   >
                     {{ $a->title }}
                   </a>

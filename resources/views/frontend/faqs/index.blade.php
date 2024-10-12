@@ -8,7 +8,7 @@
         <div class="flex flex-1 flex-col items-center justify-center relative">
             <div class="flex flex-1 flex-col pb-18 max-w-md md:max-w-2xl ">
                 <section class="w-full mx-auto  mt-10 md:mt-10 px-5 ">
-                    <h5 class="font-semibold md:font-bold text-2xl text-black md:text-3xl text-center ">Frequently Asked Questions</h5>
+                    <h5 class="font-semibold md:font-bold text-2xl text-black md:text-3xl pally-medium text-center ">Frequently Asked Questions</h5>
                     <dl class="w-full mt-6 space-y-4 ">
                         @foreach($faqs as $faq)
                         <div class="w-full py-5 px-4 rounded-xl" :class="open ? 'bg-[#f3f4f6]' : ''" x-data="{ open:false }">

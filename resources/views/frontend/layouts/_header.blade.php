@@ -30,7 +30,7 @@
         
       </div>
       
-      
+      @include('frontend.components._browse')
       <a href="{{ route('topic') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['tags'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
         Topics
       </a>

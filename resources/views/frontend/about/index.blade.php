@@ -2,6 +2,7 @@
 
 @section('content')
 
+@include('frontend.components._newsfeed')
 
     <main class="flex bg-white min-h-screen pt-16 md:pt-[60px] max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div class="container mx-auto px-5 my-8">
@@ -14,7 +15,7 @@
                                 <div class="flex items-center gap-x-5">
                                     <p class="text-xs sm:text-sm text-gray-800 dark:text-gray-200">Last updated: June 2024</p>
                                 </div>
-                                <div class="font-serif text-gray-800 prose text-xl leading-8">
+                                <div class="font-serif2 text-gray-800 prose text-xl leading-8">
                                     <p>Hi 👋 and thanks for checking out ColorBliss!</p>
                                     <p>With ColorBliss, you can create any coloring sheet you can imagine for your kids, your students, your nieces, your nephews, and even for yourself. Just type a description of what you want to color and in seconds you'll have an image you can print and start coloring!</p>
                                     <p>ColorBliss is a labor of love made by me, Ben Robertson, with the support of my 3 kids and my amazing wife.</p>

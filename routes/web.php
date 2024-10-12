@@ -41,7 +41,7 @@ Route::middleware(['throttle:global'])->group(function () {
 });
 Route::get('facts/tag/{tag}', [FactController::class, 'showByTag']);
 
-Route::get('/search', [SearchController::class, 'search'])->name('quote.search');
+Route::get('/search', [SearchController::class, 'search'])->name('fact.search');
 
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
 Route::get('/articles/{slug}', [ArticleController::class, 'show']);
