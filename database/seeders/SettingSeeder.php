@@ -44,15 +44,19 @@ class SettingSeeder extends Seeder
             ],
             [
                 'key' => 'twitter',
-                'value' => '@fun&fact'
+                'value' => 'https://x.com/_colorblissart'
             ],
             [
                 'key' => 'facebook',
-                'value' => '@fun&fact'
+                'value' => 'https://www.facebook.com/colorblissart/'
             ],
             [
                 'key' => 'instagram',
-                'value' => '@fun&fact'
+                'value' => 'https://www.instagram.com/colorbliss.art/'
+            ],
+            [
+                'key' => 'pinterest',
+                'value' => 'https://id.pinterest.com/getcolorbliss/'
             ],
             [
                 'key' => 'about_us',

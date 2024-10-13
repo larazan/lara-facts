@@ -13,4 +13,6 @@ class CategoryController extends Controller
         $this->data['title'] = "Categories";
 		return $this->loadTheme('category.index', $this->data);
     }
+
+    
 }

@@ -1,4 +1,9 @@
-<header class="fixed z-30 w-full px-3 md:px-10 py-2 md:py-1.5 items-center transition duration-300 ease-out bg-white bg-opacity-102 backdrop-filter backdrop-blur2 border-b shadow" x-data="{ menuOpen: false, textD: 'test' }">
+<header 
+  class="fixed z-30 w-full px-3 md:px-10 py-2 md:py-1.5 items-center transition duration-300 ease-out bg-white " 
+  x-data="{ menuOpen: false, textD: 'test', isBordered: false }"
+  x-init="window.addEventListener('scroll', () => { isBordered = window.scrollY > 100; })"
+  :class="isBordered ? 'border-b shadow-sm bg-white/60 backdrop-filter backdrop-blur-sm' : ''"
+>
   <div class="flex items-center justify-between mx-auto max-w-5xl">
     <div class="flex w-3/12 md:w-2/12 md:py-1 items-center text-gray-800">
       <a href="/">
@@ -31,7 +36,7 @@
       </div>
       
       @include('frontend.components._browse')
-      <a href="{{ route('topic') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['tags'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
+      <a href="{{ route('topic') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['topic'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
         Topics
       </a>
       <a href="{{ route('articles') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['articles'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">

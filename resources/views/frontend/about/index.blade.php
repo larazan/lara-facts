@@ -4,7 +4,7 @@
 
 @include('frontend.components._newsfeed')
 
-    <main class="flex bg-white min-h-screen pt-16 md:pt-[60px] max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+    <main class="flex bg-white min-h-screen pt-0 md:pt-[0px] max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div class="container mx-auto px-5 my-8">
             <div class="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto">
                 <div class="grid2 grid-cols-122 lg:grid-cols-3 gap-y-8 lg:gap-y-0 lg:gap-x-12">
