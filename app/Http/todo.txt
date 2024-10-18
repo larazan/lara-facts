@@ -1,5 +1,6 @@
 testimoni
 topic / tag
+category page
 fact content series, fact related like product variant
 today fact based on time (dd-mm-yy)
 add color to fact form

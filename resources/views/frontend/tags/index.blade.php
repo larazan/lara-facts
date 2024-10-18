@@ -34,7 +34,7 @@
                     
                         @foreach($tags as $t)
                         <a href="">
-                            <div class="mr-2 mt-1 mb-1 py-1.5 px-2 text-sm bg-white border border-slate-300 rounded-md flex items-center text-slate-900 gap-x-1 hover:bg-slate-200 transition cursor-pointer">
+                            <div class="mr-2 mt-1 mb-1 py-1.5 px-3 text-sm bg-white border border-slate-300 rounded-xs flex items-center text-slate-900 gap-x-1 hover:bg-slate-200 transition cursor-pointer">
                                 <div class="truncate text-xs font-semibold capitalize">{{ $t->name }}</div>
                             </div>
                         </a>

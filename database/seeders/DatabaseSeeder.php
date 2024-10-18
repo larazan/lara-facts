@@ -22,8 +22,13 @@ class DatabaseSeeder extends Seeder
             SettingSeeder::class,
             ArticleSeeder::class,
             FaqSeeder::class,
-            FactSeeder::class,
             TagSeeder::class,
+            
+            FactSeeder::class,
+            FunSeeder::class,
+            FunnySeeder::class,
+            RandomSeeder::class,
+            RandomFunSeeder::class,
         ]);
     }
 }
