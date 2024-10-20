@@ -141,6 +141,12 @@ class CategorySeeder extends Seeder
                 'status' => 'active',
                 'created_at' => Carbon::now(),
             ],
+            [
+                'name' => 'Celebrity',
+                'slug' => 'celebrity',
+                'status' => 'active',
+                'created_at' => Carbon::now(),
+            ],
         ];
 
         Category::insert($data);
