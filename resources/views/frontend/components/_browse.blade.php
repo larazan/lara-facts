@@ -6,7 +6,7 @@ $categories = \App\Models\Category::all();
 
   <button class="hidden sm:inline-block group relative items-center text-gray-900" aria-haspopup="true" @click.outside="open = false" @click.prevent="open = !open" :aria-expanded="open">
     <span class=" cursor-pointer flex flex-row items-end gap-1">Browse
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" width="20" height="20">
+      <svg :class="open ? 'rotate-180 transition duration-300' : 'transition duration-300'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" width="20" height="20">
         <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"></path>
       </svg>
     </span>
@@ -22,7 +22,7 @@ $categories = \App\Models\Category::all();
           <a class="text-base font-semibold uppercase text-gray-500 pally-regular" href="/integrations">Categories</a>
           <div class="grid grid-cols-2 gap-3">
             @foreach($categories as $cat)
-            <a class="flex flex-row items-center gap-2 text-sm hover:text-gray-700 text-gray-600" href="/integrations/how-to-submit-webflow-forms-to-google-sheets">
+            <a class="flex flex-row items-center gap-2 text-sm hover:text-[#20bd70] text-gray-600" href="/integrations/how-to-submit-webflow-forms-to-google-sheets">
               <span class="whitespace-nowrap">{{ $cat->name }}</span>
             </a>
             @endforeach

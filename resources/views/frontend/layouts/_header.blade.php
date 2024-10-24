@@ -36,10 +36,10 @@
       </div>
       
       @include('frontend.components._browse')
-      <a href="{{ route('topic') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['topic'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
+      <a href="{{ route('topic') }}" class="hidden md:block hover:text-[#20bd70] @if(in_array(Request::segment(1), ['topic'])){{ 'text-[#20bd70]' }}@else{ 'text-gray-900' }@endif">
         Topics
       </a>
-      <a href="{{ route('articles') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['articles'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
+      <a href="{{ route('articles') }}" class="hidden md:block hover:text-[#20bd70] @if(in_array(Request::segment(1), ['articles'])){{ 'text-[#20bd70]' }}@else{ 'text-gray-900' }@endif">
         Article
       </a>
 

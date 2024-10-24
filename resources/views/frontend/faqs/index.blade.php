@@ -3,7 +3,7 @@
 @section('content')
 
 
-<main class="flex bg-white min-h-screen pt-16 md:pt-[100px] max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+<main class="flex bg-white min-h-screen pt-16 md:pt-[70px] max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
     <div class="flex flex-row w-full">
         <div class="flex flex-1 flex-col items-center justify-center relative">
             <div class="flex flex-1 flex-col pb-18 max-w-md md:max-w-2xl ">
@@ -19,42 +19,39 @@
                                     type="button"
                                     aria-expanded="true"
                                     aria-controls="headlessui-disclosure-panel-12"
-                                    @click="open = !open"
-                                >
+                                    @click="open = !open">
                                     <span class="font-semibold text-gray-800 hover:text-gray-500">{{ $faq->question }}</span>
                                     <span class="flex items-center ml-6 h-7">
-                                    <span class="text-primary font-normal text-2xl">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path x-show="open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-                                            <path x-show="!open"  stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                        </svg>
-                                    </span>
+                                        <span class="text-primary font-normal text-2xl">
+                                            <svg :class="open ? 'rotate-180 transition duration-300' : 'transition duration-300'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" width="25" height="25">
+                                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </span>
                                     </span>
                                 </button>
                             </dt>
-                            
-                            <dd class="pr-12 mt-2" x-show="open" id="headlessui-disclosure-panel-12" 
+
+                            <dd class="pr-12 mt-2" x-show="open" id="headlessui-disclosure-panel-12"
                                 x-transition:enter="transition ease-out duration-300"
                                 x-transition:enter-start="opacity-0 transform -translate-y-6"
                                 x-transition:enter-end="opacity-100 transform translate-y-0"
                                 x-transition:leave="transition ease-in duration-300"
                                 x-transition:leave-start="opacity-100 transform translate-y-0"
-                                x-transition:leave-end="opacity-0 transform -translate-y-6"
-                            >
+                                x-transition:leave-end="opacity-0 transform -translate-y-6">
                                 <p class="text-base text-gray-700">
-                                    <div>
+                                <div>
                                     {{ $faq->answer }}
-                                    </div>
+                                </div>
                                 </p>
                             </dd>
                         </div>
                         @endforeach
-                        
+
                     </dl>
 
                 </section>
-                
-                
+
+
 
 
             </div>

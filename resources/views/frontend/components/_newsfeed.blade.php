@@ -13,7 +13,7 @@
       class="flex uppercase2 items-center w-full font-semibold max-w-screen whitespace-no-wrap transition-transform duration-300 ease-linear py-3 text-slate-900 text-sm bg-[#e6ff00] leading-tight"
     >
       <template x-for="(headline, index) in headlines.slice(0, visible)" :key="index">
-        <li :id="`news-${index}`" class="flex px-16 whitespace-nowrap" x-text="headline"></li>
+        <li :id="`news-${index}`" class="flex px-16 whitespace-nowrap tracking-widest" x-text="headline"></li>
       </template>
     </ul>
   </div>

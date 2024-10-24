@@ -16,7 +16,7 @@
             @foreach($letters as $l)
             <a 
                 href="#{{ $l }}"
-                class="flex mr-2 mt-2 justify-center items-center mb-1.5 w-8 h-8 bg-white hover:bg-blue-800 px-2 py-1 border-2  hover:text-white border-gray-900 @if(Request::segment(3) == $l){{ 'bg-blue-800 text-white' }}@else{ 'bg-white text-gray-900' }@endif"
+                class="flex mr-2 mt-2 justify-center items-center mb-1.5 w-8 h-8 bg-white hover:bg-[#20bd70] px-2 py-1 border-2  hover:text-white border-gray-900 @if(Request::segment(3) == $l){{ 'bg-blue-800 text-white' }}@else{ 'bg-white text-gray-900' }@endif"
             >
                 <span class="uppercase font-bold ">{{ $l }}</span>
             </a>
@@ -35,7 +35,7 @@
                         @foreach($tags as $t)
                         <a href="">
                             <div class="mr-2 mt-1 mb-1 py-1.5 px-3 text-sm bg-white border border-slate-300 rounded-xs flex items-center text-slate-900 gap-x-1 hover:bg-slate-200 transition cursor-pointer">
-                                <div class="truncate text-xs font-semibold capitalize">{{ $t->name }}</div>
+                                <div class="truncate tracking-wide text-xs font-semibold capitalize">{{ $t->name }}</div>
                             </div>
                         </a>
                         @endforeach

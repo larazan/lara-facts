@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 //
 use App\Http\Controllers\Frontend\ArticleController;
 use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Frontend\CategoryController;
 use App\Http\Controllers\Frontend\FactController;
 use App\Http\Controllers\Frontend\FaqController;
 use App\Http\Controllers\Frontend\HomeController;
@@ -46,6 +47,8 @@ Route::get('/search', [SearchController::class, 'search'])->name('fact.search');
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
 Route::get('/articles/{slug}', [ArticleController::class, 'show']);
 Route::get('articles/tag/{tag}', [ArticleController::class, 'showByTag']);
+
+Route::get('/category', [CategoryController::class, 'index'])->name('category');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');

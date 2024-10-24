@@ -51,8 +51,9 @@ $pinterest = $p->value;
         <div>
             <h4 class="mt-0 text-xs font-semibold text-gray-900 uppercase dark:text-gray-100">Other Sites</h4>
             <div class="mt-3 grid space-y-3 text-sm">
-                <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="https://hotelsforkids.net">Hotels for Kids</a></p>
-                <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="https://calculating.world">Calculating World</a></p>
+                <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="https://hotelsforkids.net">Million Quotes</a></p>
+                <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="https://calculating.world">Million Quiz</a></p>
+                <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="https://calculating.world">Million Tips</a></p>
             </div>
         </div>
     </div>
