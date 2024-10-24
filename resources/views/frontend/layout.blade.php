@@ -125,10 +125,29 @@
       background: rgb(38, 164, 163);
       opacity: 40%;
     }
+
+    .custom-scrollbar::-webkit-scrollbar {
+      height: 10px;
+      width: 10px
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: transparent
+    }
+
+    .custom-scrollbar:hover::-webkit-scrollbar-thumb {
+      background: #b2b7b8;
+      border-radius: 0px;
+      border: 4px solid #b2b7b8;
+    }
   </style>
 </head>
 
-<body x-data="{ filterOpen: false, openSearch: false }">
+<body x-data="{ filterOpen: false, openSearch: false, customizeOpen: false }">
 
 <!-- <div id="background-bar"></div> -->
 

@@ -16,5 +16,10 @@ class CategoryController extends Controller
 		return $this->loadTheme('category.index', $this->data);
     }
 
+    public function detail()
+    {
+        $this->data['title'] = "Detail";
+		return $this->loadTheme('category.detail', $this->data);
+    }
     
 }

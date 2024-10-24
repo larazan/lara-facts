@@ -49,6 +49,7 @@ Route::get('/articles/{slug}', [ArticleController::class, 'show']);
 Route::get('articles/tag/{tag}', [ArticleController::class, 'showByTag']);
 
 Route::get('/category', [CategoryController::class, 'index'])->name('category');
+Route::get('/category/detail', [CategoryController::class, 'detail']);
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');

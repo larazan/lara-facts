@@ -19,7 +19,7 @@ $categories = \App\Models\Category::all();
 
       <div class="">
         <div class="flex flex-col gap-3">
-          <a class="text-base font-semibold uppercase text-gray-500 pally-regular" href="/integrations">Categories</a>
+          <a class="text-base font-semibold uppercase text-gray-500 pally-regular" href="{{ url('/category') }}">Categories</a>
           <div class="grid grid-cols-2 gap-3">
             @foreach($categories as $cat)
             <a class="flex flex-row items-center gap-2 text-sm hover:text-[#20bd70] text-gray-600" href="/integrations/how-to-submit-webflow-forms-to-google-sheets">

@@ -21,7 +21,7 @@
                         </div>
                         <div>
                             <a
-                                href="/collections/"
+                                href="{{ url('/category') }}"
                                 class="font-semibold animated-underline after:bg-[#fff] before:bg-[#000] text-black">
                                 See all
                             </a>
@@ -57,7 +57,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-
                                                 </div>
                                             </div>
                                         </a>
